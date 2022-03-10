@@ -18,10 +18,27 @@
             {{ session('info') }}
         </div>
     @endif
-
     <div class="card" style="width:100%">
         <header class="card-header">
             <p class="card-header-title">Pays</p>
+
+<div class="card" style="width:100%">
+
+    <header class="card-header">
+        <p class="card-header-title">Pays</p>
+        @if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a>
+                @else
+                    <a class="button is-info" href="{{ route('login') }}" >Log in</a>
+
+                    @if (Route::has('register'))
+                        <a  class="button is-info" href="{{ route('register') }}" >Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
 
             <a class="button is-info" href="{{ route('objet.create') }}">Créer un pays</a>
         </header>

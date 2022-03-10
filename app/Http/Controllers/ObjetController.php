@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ObjetRequest;
 use Illuminate\Http\Request;
 use App\Models\Objet;
+use App\Models\Categorie;
 use Illuminate\Support\Facades\DB;
 
 
@@ -65,6 +66,11 @@ class ObjetController extends Controller
      */
     public function show(Objet $objet)
     {
+        $objet=DB::table('objets')
+            ->join('categories', 'objets.idCategorie', '=', 'categories.idCategorie')
+            ->select('objets.*', 'categories.*')
+            ->where('objets.idObjet','=',$id)
+            ->get();
         return view('objet/showObjet', compact('objet'));
     }
 

@@ -125,6 +125,7 @@ class ComposerStaticInit7062989aae05250cf5ce24d729dad388
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
+            'Laravel\\Breeze\\' => 15,
         ),
         'I' => 
         array (
@@ -396,6 +397,10 @@ class ComposerStaticInit7062989aae05250cf5ce24d729dad388
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
         ),
+        'Laravel\\Breeze\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/breeze/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -509,6 +514,9 @@ class ComposerStaticInit7062989aae05250cf5ce24d729dad388
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\EnchereController' => __DIR__ . '/../..' . '/app/Http/Controllers/EnchereController.php',
+        'App\\Http\\Controllers\\ObjetController' => __DIR__ . '/../..' . '/app/Http/Controllers/ObjetController.php',
+        'App\\Http\\Controllers\\UtilisateurController' => __DIR__ . '/../..' . '/app/Http/Controllers/UtilisateurController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -518,8 +526,11 @@ class ComposerStaticInit7062989aae05250cf5ce24d729dad388
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\EnchereRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EnchereRequest.php',
+        'App\\Http\\Requests\\ObjetRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ObjetRequest.php',
+        'App\\Http\\Requests\\UtilisateurRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UtilisateurRequest.php',
         'App\\Models\\Categorie' => __DIR__ . '/../..' . '/app/Models/Categorie.php',
-        'App\\Models\\Encheres' => __DIR__ . '/../..' . '/app/Models/Encheres.php',
+        'App\\Models\\Enchere' => __DIR__ . '/../..' . '/app/Models/Enchere.php',
         'App\\Models\\Objet' => __DIR__ . '/../..' . '/app/Models/Objet.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Utilisateur' => __DIR__ . '/../..' . '/app/Models/Utilisateur.php',
@@ -636,6 +647,7 @@ class ComposerStaticInit7062989aae05250cf5ce24d729dad388
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\CategorieFactory' => __DIR__ . '/../..' . '/database/factories/CategorieFactory.php',
+        'Database\\Factories\\EnchereFactory' => __DIR__ . '/../..' . '/database/factories/EnchereFactory.php',
         'Database\\Factories\\ObjetFactory' => __DIR__ . '/../..' . '/database/factories/ObjetFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Factories\\UtilisateurFactory' => __DIR__ . '/../..' . '/database/factories/UtilisateurFactory.php',
@@ -2661,6 +2673,11 @@ class ComposerStaticInit7062989aae05250cf5ce24d729dad388
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'Laravel\\Breeze\\BreezeServiceProvider' => __DIR__ . '/..' . '/laravel/breeze/src/BreezeServiceProvider.php',
+        'Laravel\\Breeze\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallCommand.php',
+        'Laravel\\Breeze\\Console\\InstallsApiStack' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallsApiStack.php',
+        'Laravel\\Breeze\\Console\\InstallsBladeStack' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallsBladeStack.php',
+        'Laravel\\Breeze\\Console\\InstallsInertiaStacks' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallsInertiaStacks.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
         'Laravel\\Sail\\Console\\PublishCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/PublishCommand.php',
         'Laravel\\Sail\\SailServiceProvider' => __DIR__ . '/..' . '/laravel/sail/src/SailServiceProvider.php',

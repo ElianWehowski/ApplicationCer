@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ObjetController;
 use \App\Http\Controllers\UtilisateurController;
 use \App\Http\Controllers\EnchereController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,15 @@ use \App\Http\Controllers\EnchereController;
 */
 
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::resource('objet',ObjetController::class);
 Route::resource('utilisateur',UtilisateurController::class);
 Route::resource('enchere',EnchereController::class);
 
 Route::get('/', [ObjetController::class,'index']);
 Route::post('/objet', [ObjetController::class, 'index']);
+
+require __DIR__.'/auth.php';
