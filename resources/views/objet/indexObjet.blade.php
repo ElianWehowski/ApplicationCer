@@ -18,29 +18,26 @@
             {{ session('info') }}
         </div>
     @endif
+
     <div class="card" style="width:100%">
+
         <header class="card-header">
             <p class="card-header-title">Pays</p>
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a>
+                        <a class="button is-info" href="{{ route('objet.create') }}">Créer un pays</a>
+                    @else
+                        <a class="button is-info" href="{{ route('login') }}" >Log in</a>
 
-<div class="card" style="width:100%">
+                        @if (Route::has('register'))
+                            <a  class="button is-info" href="{{ route('register') }}" >Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
 
-    <header class="card-header">
-        <p class="card-header-title">Pays</p>
-        @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                    <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a>
-                @else
-                    <a class="button is-info" href="{{ route('login') }}" >Log in</a>
-
-                    @if (Route::has('register'))
-                        <a  class="button is-info" href="{{ route('register') }}" >Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-
-            <a class="button is-info" href="{{ route('objet.create') }}">Créer un pays</a>
         </header>
         <div class="card-content">
             <form action="{{ route('objet.index') }}" method="POST">
@@ -73,7 +70,7 @@
                 <tbody>
                 @foreach($toutLesObjets as $objet)
 
-                    @if(isset($_POST['categorie']) && $objet->idCategorie == $_POST['categorie'] || $_POST['categorie']=="rien")
+                    @if(!isset($_POST['categorie']) || isset($_POST['categorie']) && $objet->idCategorie == $_POST['categorie'] || isset($_POST['categorie']) && $_POST['categorie']=="rien")
                         <tr>
                             <td>{{ $objet->idObjet }}</td>
                             <td>{{ $objet->libelle }}</td>
