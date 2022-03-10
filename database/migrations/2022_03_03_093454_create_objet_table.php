@@ -32,7 +32,7 @@ class CreateObjetTable extends Migration
 
             $table->foreign('idAcheteur')->references('idUtilisateur')->on('utilisateurs');
             $table->foreign('idProprietaire')->references('idUtilisateur')->on('utilisateurs');
-            $table->foreign('idCategorie')->references('idCategorie')->on('categorie');
+            $table->foreign('idCategorie')->references('idCategorie')->on('categories');
 
         });
     }

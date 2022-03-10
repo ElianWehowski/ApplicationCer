@@ -11,7 +11,6 @@ class Objet extends Model
     protected $fillable = [
         'prix',
         'proprietaire',
-        'nbEnchere',
         'acheteur',
         'nom',
         'categorie',

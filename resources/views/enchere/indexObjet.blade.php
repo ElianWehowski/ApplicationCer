@@ -1,4 +1,4 @@
-@extends('../template1')
+@extends('template1')
 @section('css')
     <style>
         .card-footer {

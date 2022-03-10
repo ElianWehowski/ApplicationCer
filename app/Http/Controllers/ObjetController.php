@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ObjetRequest;
 use Illuminate\Http\Request;
 use App\Models\Objet;
 use Illuminate\Support\Facades\DB;
@@ -16,8 +17,10 @@ class ObjetController extends Controller
      */
     public function index()
     {
-        $toutLesObjets=Objet::orderBy('idObjet', 'ASC')->get(); //on recupere toutes les lignes de la table
-      //  $toutLesObjets = DB::select('select objets.*, categories.*')->join('categories', 'objets.idCategorie', '=', 'categories.idCategorie')->where('objets.idCategorie', 'categories.idCategorie')->get();
+        $toutLesObjets=DB::table('objets')
+            ->join('categories', 'objets.idCategorie', '=', 'categories.idCategorie')
+            ->select('objets.*', 'categories.*')
+            ->get();
         return view('objet/indexObjet',compact('toutLesObjets'));
     }
 
@@ -28,7 +31,7 @@ class ObjetController extends Controller
      */
     public function create()
     {
-        //
+        return view('objet/createObjet');
     }
 
     /**
@@ -37,9 +40,18 @@ class ObjetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ObjetRequest $request,Objet $objet)
     {
-        //
+        $objet->prix=$request->nom;
+        $objet->proprietaire=$request->nb_habitant;
+        $objet->acheteur=$request->superficie;
+        $objet->nom=$request->superficie;
+        $objet->categorie=$request->superficie;
+        $objet->dateOuverture=$request->superficie;
+        $objet->dateFermeture=$request->superficie;
+        $objet->vendu=$request->superficie;
+        $objet->save();
+        return redirect()->route('objet.index')->with('info','Le pays ' . $objet->nom . ' a été créé');
     }
 
     /**
@@ -48,9 +60,9 @@ class ObjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Objet $objet)
     {
-        //
+        return view('objet/showObjet', compact('objet'));
     }
 
     /**
@@ -59,9 +71,9 @@ class ObjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Objet $objet)
     {
-        //
+        return view('objet/editObjet', compact('objet'));
     }
 
     /**
@@ -71,9 +83,10 @@ class ObjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ObjetRequest $request, Objet $objet)
     {
-        //
+        $objet->update($request->all());
+        return redirect()->route('objet.index')->with('info', 'Le pays a bien été modifié');
     }
 
     /**
@@ -82,8 +95,9 @@ class ObjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Objet $objet)
     {
-        //
+        $objet->delete();
+        return redirect()->route('objet/objet.indexObjet')->with('info', 'Le pays a bien été suprimé');
     }
 }

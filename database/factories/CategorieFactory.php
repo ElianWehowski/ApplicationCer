@@ -14,7 +14,7 @@ class CategorieFactory extends Factory
     public function definition()
     {
         return [
-            'libelle' => "divers"
+            'libelle' => $this->faker->lastName()
         ];
     }
 }

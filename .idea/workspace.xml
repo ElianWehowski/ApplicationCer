@@ -138,13 +138,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/objet" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="MTHome" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ProjetCER\resources\views" />
       <recent name="C:\wamp64\www\ProjetCER\resources\views\objet" />
     </key>
   </component>
@@ -164,7 +165,7 @@
       <updated>1646296267726</updated>
       <workItem from="1646296269877" duration="5603000" />
       <workItem from="1646334177432" duration="7000" />
-      <workItem from="1646895868907" duration="8005000" />
+      <workItem from="1646895868907" duration="14224000" />
     </task>
     <servers />
   </component>
