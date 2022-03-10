@@ -21,3 +21,4 @@ Route::resource('utilisateur',UtilisateurController::class);
 Route::resource('enchere',EnchereController::class);
 
 Route::get('/', [ObjetController::class,'index']);
+Route::post('/objet', [ObjetController::class, 'index']);

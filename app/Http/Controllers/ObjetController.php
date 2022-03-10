@@ -21,7 +21,10 @@ class ObjetController extends Controller
             ->join('categories', 'objets.idCategorie', '=', 'categories.idCategorie')
             ->select('objets.*', 'categories.*')
             ->get();
-        return view('objet/indexObjet',compact('toutLesObjets'));
+
+        $categories = DB::table('categories')->get();
+        $affiche = 1;
+        return view('objet/indexObjet',compact('toutLesObjets', 'categories', 'affiche'));
     }
 
     /**
@@ -42,11 +45,11 @@ class ObjetController extends Controller
      */
     public function store(ObjetRequest $request,Objet $objet)
     {
-        $objet->prix=$request->nom;
-        $objet->proprietaire=$request->nb_habitant;
-        $objet->acheteur=$request->superficie;
+        $objet->prix=0;
+        $objet->idProprietaire=$request->nb_habitant;
+        $objet->idAcheteur=$request->superficie;
         $objet->nom=$request->superficie;
-        $objet->categorie=$request->superficie;
+        $objet->idCategorie=$request->superficie;
         $objet->dateOuverture=$request->superficie;
         $objet->dateFermeture=$request->superficie;
         $objet->vendu=$request->superficie;
