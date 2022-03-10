@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Objet;
+use Illuminate\Support\Facades\DB;
+
 
 class ObjetController extends Controller
 {
@@ -13,7 +16,9 @@ class ObjetController extends Controller
      */
     public function index()
     {
-        //
+        $toutLesObjets=Objet::orderBy('idObjet', 'ASC')->get(); //on recupere toutes les lignes de la table
+      //  $toutLesObjets = DB::select('select objets.*, categories.*')->join('categories', 'objets.idCategorie', '=', 'categories.idCategorie')->where('objets.idCategorie', 'categories.idCategorie')->get();
+        return view('objet/indexObjet',compact('toutLesObjets'));
     }
 
     /**
