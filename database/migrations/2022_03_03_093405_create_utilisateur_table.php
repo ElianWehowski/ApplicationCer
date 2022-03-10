@@ -21,7 +21,6 @@ class CreateUtilisateurTable extends Migration
             $table->String('login');
             $table->String('mdp');
             $table->String('type');
-            $table->integer('enchereEffectuee');
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Categorie;
 use App\Models\Objet;
 use App\Models\Utilisateur;
+use App\Models\Enchere;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -16,7 +17,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //Categorie::factory(1)->create();
-        //Utilisateur::factory(14)->create();
-        Objet::factory(1000)->create();
+        Utilisateur::factory(7)->create();
+        Objet::factory(10)->create();
+        Enchere::factory(30)->create();
     }
 }

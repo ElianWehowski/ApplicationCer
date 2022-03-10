@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\ObjetController;
+use \App\Http\Controllers\UtilisateurController;
+use \App\Http\Controllers\EnchereController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::resource('objet',ObjetController::class);
+Route::resource('utilisateur',UtilisateurController::class);
+Route::resource('enchere',EnchereController::class);
+
+Route::get('/', [ObjetController::class,'index']);

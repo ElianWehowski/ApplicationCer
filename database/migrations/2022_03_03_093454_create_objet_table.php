@@ -16,19 +16,23 @@ class CreateObjetTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('objets', function (Blueprint $table) {
             $table->id('idObjet');
-            $table->integer('prix');
-            $table->integer('proprietaire');
-            $table->integer('nbEnchere');
-            $table->integer('acheteur')->nullable();
+
+            $table->integer('idCategorie');
+            $table->integer('idAcheteur')->nullable();
+            $table->integer('idProprietaire');
+            $table->float('prix');
+
             $table->String('nom');
-            $table->String('categorie');
+
             $table->date('dateOuverture');
             $table->date('dateFermeture');
+
             $table->boolean('vendu');
             $table->timestamps();
-            $table->foreign('proprietaire')->references('idUtilisateur')->on('utilisateurs');
-            $table->foreign('acheteur')->references('idUtilisateur')->on('utilisateurs');
-            $table->foreign('categorie')->references('idCategorie')->on('categorie');
+
+            $table->foreign('idAcheteur')->references('idUtilisateur')->on('utilisateurs');
+            $table->foreign('idProprietaire')->references('idUtilisateur')->on('utilisateurs');
+            $table->foreign('idCategorie')->references('idCategorie')->on('categorie');
 
         });
     }

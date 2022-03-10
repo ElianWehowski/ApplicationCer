@@ -14,13 +14,16 @@ class UtilisateurFactory extends Factory
      */
     public function definition()
     {
+        $login="";
+        $nomFamille = $this->faker->lastName();
+        $prenom =$this->faker->firstName();
+        $login =  $prenom[0].strtolower($nomFamille) ;
         return [
-            'nom' => $this->faker->name(),
-            'prenom' => $this->faker->name(),
-            'login' => $this->faker->name(),
+            'nom' => ucfirst($nomFamille),
+            'prenom' => $prenom,
+            'login' =>ucfirst($login),
             'mdp' => "toto",
             'type' => "utilisateur",
-            'enchereEffectuee' =>$this->faker->numberBetween(0,200)
         ];
     }
 }
