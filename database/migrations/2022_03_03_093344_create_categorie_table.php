@@ -15,7 +15,7 @@ class CreateCategorieTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('categories', function (Blueprint $table) {
-            $table->id('idCategorie');
+            $table->id();
             $table->string('libelle');
             $table->timestamps();
         });

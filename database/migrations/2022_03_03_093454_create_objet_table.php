@@ -15,7 +15,7 @@ class CreateObjetTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('objets', function (Blueprint $table) {
-            $table->id('idObjet');
+            $table->id();
 
             $table->integer('idCategorie');
             $table->integer('idAcheteur')->nullable();

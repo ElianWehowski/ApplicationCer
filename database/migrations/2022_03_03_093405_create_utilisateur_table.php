@@ -15,7 +15,7 @@ class CreateUtilisateurTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('utilisateurs', function (Blueprint $table) {
-            $table->id('idUtilisateur');
+            $table->id();
             $table->String('nom');
             $table->String('prenom');
             $table->String('login');

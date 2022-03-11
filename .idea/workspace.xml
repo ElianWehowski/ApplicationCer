@@ -3,8 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisteredUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisteredUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_03_093344_create_categorie_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_03_093344_create_categorie_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_03_093405_create_utilisateur_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_03_093405_create_utilisateur_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_03_093454_create_objet_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_03_093454_create_objet_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,9 +192,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-<<<<<<< Updated upstream
-    <option name="oldMeFiltersMigrated" value="true" />
-=======
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -194,6 +201,6 @@
         </entry>
       </map>
     </option>
->>>>>>> Stashed changes
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

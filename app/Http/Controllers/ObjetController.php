@@ -19,7 +19,7 @@ class ObjetController extends Controller
     public function index()
     {
         $toutLesObjets=DB::table('objets')
-            ->join('categories', 'objets.idCategorie', '=', 'categories.idCategorie')
+            ->join('categories', 'objets.idCategorie', '=', 'categories.id')
             ->select('objets.*', 'categories.*')
             ->get();
 
@@ -27,6 +27,7 @@ class ObjetController extends Controller
         $affiche = 1;
         return view('objet/indexObjet',compact('toutLesObjets', 'categories', 'affiche'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -66,11 +67,7 @@ class ObjetController extends Controller
      */
     public function show(Objet $objet)
     {
-        $objet=DB::table('objets')
-            ->join('categories', 'objets.idCategorie', '=', 'categories.idCategorie')
-            ->select('objets.*', 'categories.*')
-            ->where('objets.idObjet','=',$id)
-            ->get();
+
         return view('objet/showObjet', compact('objet'));
     }
 
@@ -107,6 +104,6 @@ class ObjetController extends Controller
     public function destroy(Objet $objet)
     {
         $objet->delete();
-        return redirect()->route('objet/objet.indexObjet')->with('info', 'Le pays a bien été suprimé');
+        return redirect()->route('objet.index')->with('info', 'Le pays a bien été suprimé');
     }
 }

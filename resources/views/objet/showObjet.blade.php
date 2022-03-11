@@ -6,7 +6,9 @@
             </header>
             <div class="card-content">
                 <div class="content">
-                    <p>Id du pays : {{ $objet->idObjet }}</p>
+                    <p>Id du pays : {{ $objet->id }}</p>
+                    <p>Id du pays : {{ $objet->nom }}</p>
+                    <p>Id du pays : {{ $objet->prix }}</p>
                 </div>
             </div>
             <footer class="card-footer is-centered">
