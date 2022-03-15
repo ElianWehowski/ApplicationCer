@@ -20,7 +20,7 @@ class ObjetController extends Controller
     {
         $toutLesObjets=DB::table('objets')
             ->join('categories', 'objets.idCategorie', '=', 'categories.id')
-            ->select('objets.*', 'categories.*')
+            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
             ->get();
 
         $categories = DB::table('categories')->get();

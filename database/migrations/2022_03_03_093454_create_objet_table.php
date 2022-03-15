@@ -24,8 +24,8 @@ class CreateObjetTable extends Migration
 
             $table->String('nom');
 
-            $table->date('dateOuverture');
-            $table->date('dateFermeture');
+            $table->datetime('dateOuverture');
+            $table->datetime('dateFermeture');
 
             $table->boolean('vendu');
             $table->timestamps();
