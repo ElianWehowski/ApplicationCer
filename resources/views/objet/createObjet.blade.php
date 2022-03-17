@@ -2,14 +2,14 @@
 @section('contenu')
 <div class="card">
     <header class="card-header">
-        <p class="card-header-title">Création d'un pays</p>
+        <p class="card-header-title">Création d'une enchère</p>
     </header>
     <div class="card-content">
         <div class="content">
             <form action="{{ route('objet.store') }}" method="POST">
                 @csrf
                 <div class="field">
-                    <label class="label">Nom du pays</label>
+                    <label class="label">Nom de l'objet</label>
                     <div class="control">
                         <input class="input" type="numeric" name="nom" value="{{ old('nom') }}">
                     </div>
@@ -20,23 +20,50 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Nombre d'habitants</label>
+                    <label class="label">Prix de départ</label>
                     <div class="control">
-                        <input class="input" type="numeric" name="nb_habitant" value="{{ old('nb_habitant') }}">
+                        <input class="input" type="numeric" name="prix" value="{{ old('prix') }}">
                     </div>
-                    @error('nb_habitant')
+                    @error('prix')
                     <p class="help is-danger">{{ $message }}</p>
                     @enderror
                 </div>
+
+                 <div class="field">
+                    <label class="label">Date d'ouverture de l'enchère</label>
+                    <div class="control">
+                        <input class="input" type="datetime-local" name="ouverture" value="{{ old('ouverture') }}">
+                    </div>
+                    @error('ouverture')
+                    <p class="help is-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="field">
-                    <label class="label">Superficie du pays</label>
+                    <label class="label">Date de fermeture de l'enchère</label>
                     <div class="control">
-                        <input class="input" type="text" name="superficie" value="{{ old('superficie') }}">
+                        <input class="input" type="datetime-local" name="fermeture" value="{{ old('fermeture') }}">
                     </div>
-                    @error('superficie')
+                    @error('fermeture')
                     <p class="help is-danger">{{ $message }}</p>
                     @enderror
                 </div>
+
+                <div class="field">
+                    <label class="label">Catégorie</label>
+                    <div class="control">
+                        <select name="categorie">
+                            @foreach($categories as $categorie)
+                                <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('categorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    @error('categorie')
+                    <p class="help is-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <input type="hidden" name="idProprietaire" value="{{Auth::user()->id}}"></input>
                 <div class="field">
                     <div class="control">
                         <button class="button is-link">Envoyer</button>

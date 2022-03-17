@@ -18,4 +18,8 @@ class Objet extends Model
         'dateFermeture',
         'vendu'
     ];
+    public function categories(){
+//retourne la collection de personnages pour un album
+        return $this->belongsToMany(Categorie::class);
+    }
 }

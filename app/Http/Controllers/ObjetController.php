@@ -16,16 +16,21 @@ class ObjetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($idCate = null)
     {
-        $toutLesObjets=DB::table('objets')
+        $query = $idCate ? Categorie::where('id',$idCate)->firstOrFail()->objets() :Objet::query();
+//        $toutLesObjets=DB::table('objets')
+//            ->join('categories', 'objets.idCategorie', '=', 'categories.id')
+//            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
+//            ->get();
+
+        $toutLesObjets=$query
             ->join('categories', 'objets.idCategorie', '=', 'categories.id')
             ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
             ->get();
 
         $categories = DB::table('categories')->get();
-        $affiche = 1;
-        return view('objet/indexObjet',compact('toutLesObjets', 'categories', 'affiche'));
+        return view('objet/indexObjet',compact('toutLesObjets', 'categories', 'idCate'));
     }
 
 
@@ -36,7 +41,8 @@ class ObjetController extends Controller
      */
     public function create()
     {
-        return view('objet/createObjet');
+        $categories=Categorie::all();
+        return view('objet/createObjet', compact('categories'));
     }
 
     /**
@@ -47,16 +53,18 @@ class ObjetController extends Controller
      */
     public function store(ObjetRequest $request,Objet $objet)
     {
-        $objet->prix=0;
-        $objet->idProprietaire=$request->nb_habitant;
-        $objet->idAcheteur=$request->superficie;
-        $objet->nom=$request->superficie;
-        $objet->idCategorie=$request->superficie;
-        $objet->dateOuverture=$request->superficie;
-        $objet->dateFermeture=$request->superficie;
-        $objet->vendu=$request->superficie;
+        $objet->prix=$request->prix;
+        $objet->idProprietaire=$request->idProprietaire;
+        $objet->idAcheteur=null;
+        $objet->nom=$request->nom;
+        $objet->idCategorie=$request->categorie;
+        $objet->dateOuverture=$request->ouverture;
+        $objet->dateFermeture=$request->fermeture;
+        $objet->vendu=0;
         $objet->save();
-        return redirect()->route('objet.index')->with('info','Le pays ' . $objet->nom . ' a été créé');
+//        $objet = Objet::create($request->all());
+//        $objet->categorie()->attach($request->categorie);
+        return redirect()->route('objet.index')->with('info','L\'enchère ' . $objet->nom . ' a été créé');
     }
 
     /**
