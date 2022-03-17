@@ -4,18 +4,13 @@
     <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UtilisateurController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UtilisateurRequest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Utilisateur.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/ObjetFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ObjetFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UtilisateurFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UtilisateurFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/utilisateur/authentification.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/utilisateur/createObjet.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/utilisateur/editObjet.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/utilisateur/indexObjet.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/utilisateur/showObjet.blade.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +182,7 @@
       <workItem from="1646922866437" duration="2281000" />
       <workItem from="1646987857231" duration="20000" />
       <workItem from="1647334131506" duration="4733000" />
-      <workItem from="1647500544231" duration="17752000" />
+      <workItem from="1647500544231" duration="24235000" />
     </task>
     <servers />
   </component>

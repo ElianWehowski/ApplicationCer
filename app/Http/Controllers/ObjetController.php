@@ -29,6 +29,7 @@ class ObjetController extends Controller
         $toutLesObjets=DB::table('objets')
             ->join('categories', 'objets.idCategorie', '=', 'categories.id')
             ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
+            ->orderBy('id','asc')
             ->get();
 
         $categories = DB::table('categories')->get();
@@ -101,7 +102,14 @@ class ObjetController extends Controller
      */
     public function edit(Objet $objet)
     {
-        return view('objet/editObjet', compact('objet'));
+        $toutLesObjets=DB::table('objets')
+            ->join('categories', 'objets.idCategorie', '=', 'categories.id')
+            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
+            ->where('objets.id','=',$objet->id)
+            ->get();
+
+        $categories = DB::table('categories')->get();
+        return view('objet/editObjet', compact('objet','toutLesObjets','categories'));
     }
 
     /**
@@ -128,9 +136,10 @@ class ObjetController extends Controller
      */
     public function bid(ObjetRequest $Orequest, Objet $objet,EnchereRequest $Erequest, Enchere $enchere)
     {
+        $late=0;
         $succes=0;
         $prixObj= $_POST['prix'];
-        $dateJour = date('Y-m-d h:i:s', time());
+        $currentDate = date('Y-m-d h:i:s', time());
         $idObj =$objet->id;
         $objetBDD = DB::table('objets')
             ->select('*')
@@ -140,7 +149,8 @@ class ObjetController extends Controller
 
         foreach ($objetBDD as $good) {
             $prixBDD = $good->prix;
-            if ($prixObj > $prixBDD && $good->dateFermeture > $dateJour ) {
+
+            if ($prixObj > $prixBDD && $good->dateFermeture > $currentDate ) {
                 $enchere->prixEnchere=$prixObj;
                 $enchere->idObjet=$idObj;
                 $enchere->idEncherisseur= Auth::user()->id;
@@ -152,15 +162,19 @@ class ObjetController extends Controller
                 $succes = 1;
 
             }
+            if($good->dateFermeture < $currentDate){
+                $late=1;
+            }
         }
 
 
 
         if($succes==1){
             return redirect::back()->with('info', 'L\'enchère a été pris en compte');
+        }elseif($late==1){
+            return redirect::back()->with('danger', 'L\'enchere est terminée');
         }else{
             return redirect::back()->with('danger', 'Le prix d\'enchère doit être supérieur au prix d\'origine de l\'objet');
-
         }
     }
 

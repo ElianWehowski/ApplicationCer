@@ -14,7 +14,7 @@ class ObjetFactory extends Factory
      */
     public function definition()
     {
-        $minApres=random_int(5,20);
+        $minApres=random_int(5,60);
         return [
             'prix' => $this->faker->numberBetween(1,1500),
             'idProprietaire' => $this->faker->numberBetween(0,7),

@@ -24,21 +24,28 @@
         <header class="card-header">
             <p class="card-header-title">Pays</p>
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a class="button is-info" > IdUtilisateur : {{ $userid =Auth::user()->type}} </a>
+                <div class="hidden fixed top-0 right-0 px-8 py-6 sm:block">
+                @auth
 
-                    <!--<a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
-                        <a class="button is-info" href="{{ route('objet.create') }}">Créer une enchere</a>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link class="button is-info" :href="route('logout')"
-                                             onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Déconnexion') }}
-                            </x-dropdown-link>
+                    <!--   <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
 
-                        </form>
+                        <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                    <span><a>{{ $userid =Auth::user()->name}} </a></span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    <a class="dropdown-item" href="{{ route('objet.create') }}">Créer une enchere</a>
+                                    <a class="dropdown-item" href="{{ route('objet.create') }}">Créer une catégorie</a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();"> {{ __('Déconnexion') }} </a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     @else
                         <a class="button is-info" href="{{ route('login') }}" >Se connecter</a>
 
@@ -85,8 +92,15 @@
                             <td>{{ $objet->prix }} </td>
                             <td>{{ $objet->dateOuverture }} </td>
                             <td>{{ $objet->dateFermeture }} </td>
-                            <td><a class="button is-primary" href="{{ route('objet.show', $objet->id) }}">Voir</a></td>
+                            <?php
+                            $currentDate = date('Y-m-d h:i:s', time());
+                            ?>
+                            @if ( $objet->dateFermeture > $currentDate )
 
+                                <td><a class="button is-primary" href="{{ route('objet.show', $objet->id) }}">Ouvert</a></td>
+                            @else
+                                <td><a class="button is-danger" disabled>Fermé</a></td>
+                            @endif
                             @if (Route::has('login'))
 
                                 @auth

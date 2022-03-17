@@ -15,7 +15,6 @@ class UtilisateurFactory extends Factory
      */
     public function definition()
     {
-        $login="";
         $nomFamille = $this->faker->lastName();
         $prenom =$this->faker->firstName();
         $login =  $prenom[0].strtolower($nomFamille) ;
