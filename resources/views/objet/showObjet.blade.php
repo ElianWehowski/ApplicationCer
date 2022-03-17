@@ -10,6 +10,7 @@
                     <p>Nombre d'enchérisseurs :  </p>
                     <p>Date ouverture : {{ $objet->dateOuverture }}</p>
                     <p>Date fermeture : {{ $objet->dateFermeture }}</p>
+                    <p>Derniere enchere : {{ $encheres[0]->dateEnchere }}</p>
                 </div>
                 @if (Route::has('login'))
                     <div class="content">

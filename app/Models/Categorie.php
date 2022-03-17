@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorie extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $fillable = ['libelle'];
 
@@ -14,4 +15,5 @@ class Categorie extends Model
 //retourne la collection de personnages pour un album
         return $this->belongsToMany(Objet::class);
     }
+
 }

@@ -25,7 +25,7 @@
             <p class="card-header-title">Pays</p>
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
+                    @auth
                         <a class="button is-info" > IdUtilisateur : {{ $userid =Auth::user()->type}} </a>
 
                     <!--<a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
@@ -76,15 +76,12 @@
                 </thead>
                 <tbody>
                 @foreach($toutLesObjets as $objet)
-                <?php
-//                    var_dump($idCate);
-                    ;?>
 
-                        @if($objet->idCategorie == $idCate || $idCate==null)
+                    @if($objet->idCategorie == $idCate || $idCate==null)
                         <tr>
                             <td>{{ $objet->id }}</td>
-                            <td>{{ $categories[$objet->idCategorie-1]->libelle }}</td>
-                            <td>{{ $objet->nom}}</td>
+                            <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
+                            <td>{{ ucfirst($objet->nom)}}</td>
                             <td>{{ $objet->prix }} </td>
                             <td>{{ $objet->dateOuverture }} </td>
                             <td>{{ $objet->dateFermeture }} </td>
@@ -92,7 +89,7 @@
 
                             @if (Route::has('login'))
 
-                                    @auth
+                                @auth
                                     @if($user = Auth::user()->type == "admin")
                                         @csrf
                                         <td><a class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
@@ -108,10 +105,10 @@
                                     @endauth
                                 @endif
                             @endif
-@endif
+                            @endif
                         </tr>
 
-                @endforeach
+                        @endforeach
                 </tbody>
             </table>
 

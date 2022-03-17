@@ -18,7 +18,7 @@ class EnchereFactory extends Factory
                 'idObjet' =>  $this->faker->numberBetween(0,10),
                 'idEncherisseur' => $this->faker->numberBetween(0,7),
                 'prixEnchere' => $this->faker->numberBetween(0,200),
-                'dateEnchere' => $this->faker->dateTimeBetween('+1 days', "+$joursApres days"),
+                'dateEnchere' => $this->faker->dateTimeBetween('+1 minute', "+$joursApres minutes"),
             ];
         }
 }

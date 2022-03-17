@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Objet;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 
 class ObjetController extends Controller
@@ -73,7 +74,11 @@ class ObjetController extends Controller
      */
     public function show(Objet $objet)
     {
-        $encheres = DB::table('encheres')->get();
+        $encheres = DB::table('encheres')
+            ->select('*')
+            ->where('encheres.idObjet','=',$objet->id)
+            ->orderBy('dateEnchere','desc')
+            ->get();
         return view('objet/showObjet', compact('objet', 'encheres'));
     }
 
@@ -102,6 +107,49 @@ class ObjetController extends Controller
     }
 
     /**
+<<<<<<< Updated upstream
+=======
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function bid(ObjetRequest $Orequest, Objet $objet,EnchereRequest $Erequest, Enchere $enchere)
+    {
+        $succes=0;
+        $prixObj= $_POST['prix'];
+        $idObj =$objet->id;
+        $objetBDD = DB::table('objets')
+            ->select('*')
+            ->where('objets.id','=',$objet->id)
+            ->get();
+
+        foreach ($objetBDD as $good) {
+            $prixBDD = $good->prix;
+            if ($prixObj > $prixBDD) {
+                $objet->update($Orequest->all());
+                $succes = 1;
+                $enchere->prixEnchere=$prixObj;
+                $enchere->idObjet=$idObj;
+                $enchere->idEncherisseur= Auth::user()->id;
+                $enchere->dateEnchere= date('Y-m-d h:i:s', time());
+                $enchere->save($Erequest->all());
+            }
+        }
+
+
+
+        if($succes==1){
+            return redirect::back()->with('info', 'L\'enchere a été pris en compte');
+        }else{
+            return redirect::back()->with('info', 'Le prix d\'enchere doit etre supérieur au prix d\'origine objet : '.$prixObj.' prixBdd : '.$prixBDD);
+
+        }
+    }
+
+    /**
+>>>>>>> Stashed changes
      * Remove the specified resource from storage.
      *
      * @param  int  $id
