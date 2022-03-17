@@ -18,7 +18,19 @@
                     @enderror
 
                 </div>
-
+                <label class="label" for="categorie">Catégorie</label>
+                <div class="select">
+                    <div class="control">
+                        <select id="categorie" name="categorie">
+                            @foreach($categories as $categorie)
+                                <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('categorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    @error('categorie')
+                    <p class="help is-danger">{{ $message }}</p>
+                    @enderror
+                </div>
                 <div class="field">
                     <label class="label">Prix de départ</label>
                     <div class="control">
@@ -49,19 +61,7 @@
                     @enderror
                 </div>
 
-                <div class="field">
-                    <label class="label">Catégorie</label>
-                    <div class="control">
-                        <select name="categorie">
-                            @foreach($categories as $categorie)
-                                <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('categorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @error('categorie')
-                    <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
+
 
                 <input type="hidden" name="idProprietaire" value="{{Auth::user()->id}}"></input>
                 <div class="field">

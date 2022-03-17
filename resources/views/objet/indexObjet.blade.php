@@ -22,17 +22,19 @@
     <div class="card" style="width:100%">
 
         <header class="card-header">
-            <p class="card-header-title">Pays</p>
+            <p class="card-header-title">Liste des objets</p>
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-8 py-6 sm:block">
                 @auth
 
-                    <!--   <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
+                    <!--
+                      {{ $userid =Auth::user()->name}}
+                        <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
 
                         <div class="dropdown is-hoverable">
                             <div class="dropdown-trigger">
                                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                    <span><a>{{ $userid =Auth::user()->name}} </a></span>
+                                    <span><a>Menu déroulant</a></span>
                                 </button>
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu" role="menu">

@@ -122,7 +122,7 @@ class ObjetController extends Controller
     public function update(ObjetRequest $request, Objet $objet)
     {
         $objet->update($request->all());
-        return redirect()->route('objet.index')->with('info', 'Le pays a bien été modifié');
+        return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été modifié');
     }
 
     /**
@@ -168,11 +168,10 @@ class ObjetController extends Controller
         }
 
 
-
         if($succes==1){
-            return redirect::back()->with('info', 'L\'enchère a été pris en compte');
+            return redirect::back()->with('info', 'L\'enchère a été prise en compte');
         }elseif($late==1){
-            return redirect::back()->with('danger', 'L\'enchere est terminée');
+            return redirect::back()->with('danger', 'L\'enchère est terminée');
         }else{
             return redirect::back()->with('danger', 'Le prix d\'enchère doit être supérieur au prix d\'origine de l\'objet');
         }
@@ -188,6 +187,6 @@ class ObjetController extends Controller
     public function destroy(Objet $objet)
     {
         $objet->delete();
-        return redirect()->route('objet.index')->with('info', 'Le pays a bien été suprimé');
+        return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été supprimé');
     }
 }

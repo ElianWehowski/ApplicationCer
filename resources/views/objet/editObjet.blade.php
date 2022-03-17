@@ -29,17 +29,18 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="select">
+                    <div class="field">
+                        <label class="label">Catégorie</label>
                         <div class="control">
-                            <select  onchange="window.location.href = this.value">
-                                <option value="{{ route('objet.index') }}">Toutes les catégories</option>
+                            <select class="select" name="categorie">
                                 @foreach($categories as $categorie)
-                                    <option value="{{ route('objet.categorie', $categorie->id) }}"
-                                        {{ $objet->idCategorie == $categorie->id ? 'selected' : '' }}>{{ ucfirst($categorie->libelle) }}</option>
+                                    <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('categorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
                                 @endforeach
                             </select>
                         </div>
-
+                        @error('categorie')
+                        <p class="help is-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="field">
                         <label for="ouverture" class="label">ouverture</label>

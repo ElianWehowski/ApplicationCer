@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EnchereRequest;
+use App\Http\Requests\ObjetRequest;
+use App\Models\Enchere;
+use App\Models\Objet;
 use Illuminate\Http\Request;
 
 class EnchereController extends Controller
@@ -66,9 +70,9 @@ class EnchereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EnchereRequest $request, Enchere $enchere)
     {
-        //
+//
     }
 
     /**
