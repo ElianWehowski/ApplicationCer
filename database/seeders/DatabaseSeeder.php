@@ -17,13 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Categorie::factory(15)->create();
+        Objet::factory(80)->create();
         User::factory(7)->create();
         Enchere::factory(30)->create();
 
-        $ids = range(1, 10);
-        Objet::factory()->count(100)->create()->each(function ($objets) use($ids) {
-            shuffle($ids);
-            $objets->categories()->attach(array_slice($ids, 0, rand(1, 5)));
-        });
+
     }
 }

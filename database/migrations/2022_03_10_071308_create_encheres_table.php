@@ -19,7 +19,6 @@ class CreateEncheresTable extends Migration
             $table->integer('idEncherisseur');
             $table->float('prixEnchere');
             $table->dateTime('dateEnchere');
-            $table->timestamps();
 
             $table->foreign('idEncherisseur')->references('idUtilisateur')->on('utilisateurs');
             $table->foreign('idObjet')->references('idObjet')->on('objets');

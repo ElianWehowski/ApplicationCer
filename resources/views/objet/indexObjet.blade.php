@@ -51,16 +51,7 @@
 
         </header>
         <div class="card-content">
-            <div class="select">
-                <select onchange="window.location.href = this.value">
-                    <option value="{{ route('objet.index') }}" @unless($idCate) selected @endunless>Toutes les catégories</option>
-                    @foreach($categories as $categorie)
-                        <option value="{{ route('objet.categorie', $categorie->id) }}"
-                            {{ $idCate == $categorie->libelle ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
-                    @endforeach
-                </select>
 
-            </div>
 
 
             <table class="table is-hoverable" >

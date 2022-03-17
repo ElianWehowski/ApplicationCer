@@ -28,7 +28,7 @@ Route::resource('utilisateur',UtilisateurController::class);
 Route::resource('enchere',EnchereController::class);
 
 Route::get('/', [ObjetController::class,'index']);
-Route::get('categorie/{idCate}/objets', [ObjetController::class, 'index'])->name('objet.categorie');
+Route::get('objet/{idCate}/categories', [ObjetController::class, 'index'])->name('objet.categorie');
 //Route::post('/objet', [ObjetController::class, 'index']);
 
 require __DIR__.'/auth.php';

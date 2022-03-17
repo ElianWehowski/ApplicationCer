@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EnchereRequest;
 use App\Http\Requests\ObjetRequest;
+use App\Models\Enchere;
+use DateTimeInterface;
 use Illuminate\Http\Request;
 use App\Models\Objet;
 use App\Models\Categorie;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -18,19 +22,13 @@ class ObjetController extends Controller
      */
     public function index($idCate = null)
     {
-        $query = $idCate ? Categorie::where('id',$idCate)->firstOrFail()->objets() :Objet::query();
-//        $toutLesObjets=DB::table('objets')
-//            ->join('categories', 'objets.idCategorie', '=', 'categories.id')
-//            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
-//            ->get();
-
-        $toutLesObjets=$query
+        $toutLesObjets=DB::table('objets')
             ->join('categories', 'objets.idCategorie', '=', 'categories.id')
             ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
             ->get();
 
         $categories = DB::table('categories')->get();
-        return view('objet/indexObjet',compact('toutLesObjets', 'categories', 'idCate'));
+        return view('objet/indexObjet',compact('toutLesObjets', 'categories'));
     }
 
 
@@ -110,26 +108,35 @@ class ObjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function bid(ObjetRequest $request, Objet $objet)
+    public function bid(ObjetRequest $Orequest, Objet $objet,EnchereRequest $Erequest, Enchere $enchere)
     {
         $succes=0;
+        $prixObj= $_POST['prix'];
+        $idObj =$objet->id;
         $objetBDD = DB::table('objets')
             ->select('*')
             ->where('objets.id','=',$objet->id)
             ->get();
+
         foreach ($objetBDD as $good) {
             $prixBDD = $good->prix;
-            if ($objet->prix > $prixBDD) {
-                $objet->update($request->all());
+            if ($prixObj > $prixBDD) {
+                $objet->update($Orequest->all());
                 $succes = 1;
+                $enchere->prixEnchere=$prixObj;
+                $enchere->idObjet=$idObj;
+                $enchere->idEncherisseur= Auth::user()->id;
+                $enchere->dateEnchere= DateTimeInterface::ISO8601;
+                $enchere->save($Erequest->all());
             }
         }
+
 
 
         if($succes==1){
             return redirect()->route('objet.index')->with('info', 'L\'enchere a été pris en compte');
         }else{
-            return redirect()->route('objet.index')->with('info', 'Le prix d\'enchere doit etre supérieur au prix d\'origine objet : '.$objet->prix.' prixBdd : '.$prixBDD);
+            return redirect()->route('objet.index')->with('info', 'Le prix d\'enchere doit etre supérieur au prix d\'origine objet : '.$prixObj.' prixBdd : '.$prixBDD);
 
         }
     }
