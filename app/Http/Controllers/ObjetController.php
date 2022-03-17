@@ -20,7 +20,7 @@ class ObjetController extends Controller
     {
         $toutLesObjets=DB::table('objets')
             ->join('categories', 'objets.idCategorie', '=', 'categories.id')
-            ->select('objets.*', 'categories.*')
+            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
             ->get();
 
         $categories = DB::table('categories')->get();
@@ -67,8 +67,8 @@ class ObjetController extends Controller
      */
     public function show(Objet $objet)
     {
-
-        return view('objet/showObjet', compact('objet'));
+        $encheres = DB::table('encheres')->get();
+        return view('objet/showObjet', compact('objet', 'encheres'));
     }
 
     /**
