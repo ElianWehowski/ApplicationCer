@@ -51,7 +51,16 @@
 
         </header>
         <div class="card-content">
+            <div class="select">
+                <select onchange="window.location.href = this.value">
+                    <option value="{{ route('objet.index') }}">Toutes les catégories</option>
+                    @foreach($categories as $categorie)
+                        <option value="{{ route('objet.categorie', $categorie->id) }}"
+                            {{ $idCate == $categorie->id ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                    @endforeach
+                </select>
 
+            </div>
 
 
             <table class="table is-hoverable" >
@@ -67,11 +76,14 @@
                 </thead>
                 <tbody>
                 @foreach($toutLesObjets as $objet)
+                <?php
+//                    var_dump($idCate);
+                    ;?>
 
-                    @if(!isset($_POST['categorie']) || isset($_POST['categorie']) && $objet->idCategorie == $_POST['categorie'] || isset($_POST['categorie']) && $_POST['categorie']=="rien")
+                        @if($objet->idCategorie == $idCate || $idCate==null)
                         <tr>
                             <td>{{ $objet->id }}</td>
-                            <td>{{ $objet->libelle }}</td>
+                            <td>{{ $categories[$objet->idCategorie-1]->libelle }}</td>
                             <td>{{ $objet->nom}}</td>
                             <td>{{ $objet->prix }} </td>
                             <td>{{ $objet->dateOuverture }} </td>
@@ -96,9 +108,9 @@
                                     @endauth
                                 @endif
                             @endif
-
+@endif
                         </tr>
-                    @endif
+
                 @endforeach
                 </tbody>
             </table>
