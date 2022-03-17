@@ -1,5 +1,16 @@
     @extends('template1')
     @section('contenu')
+        @if(session()->has('info'))
+            <div class="notification is-success">
+                {{ session('info') }}
+            </div>
+        @endif
+        @if(session()->has('danger'))
+            <div class="notification is-danger">
+                {{ session('danger') }}
+            </div>
+        @endif
+
         <div class="card">
             <header class="card-header">
                 <p class="card-header-title"><strong>Nom de l'objet</strong> : {{ $objet->nom }}</p>
@@ -7,10 +18,21 @@
             <div class="card-content">
                 <div class="content">
                     <p>Prix de l'objet : {{ $objet->prix }}</p>
-                    <p>Nombre d'enchérisseurs :  </p>
+                    <p>Catégorie de l'objet : {{ ucfirst($objetBDD[0]->libelle) }}</p>
+                    <p>Nombre d'enchère : {{ sizeof($encheres)  }} </p>
                     <p>Date ouverture : {{ $objet->dateOuverture }}</p>
-                    <p>Date fermeture : {{ $objet->dateFermeture }}</p>
-                    <p>Derniere enchere : {{ $encheres[0]->dateEnchere }}</p>
+                <p><strong>Date fermeture : {{ $objet->dateFermeture }}</strong></p>
+                    <p>Derniere enchere :
+                    <?php
+                        if (isset($encheres[0])){
+                            echo $encheres[0]->dateEnchere;
+                        }else{
+                            echo"Aucune enchere";
+                        }
+                    ?>
+
+
+                    </p>
                 </div>
                 @if (Route::has('login'))
                     <div class="content">
@@ -18,14 +40,16 @@
                             <form action="{{ route('objet.bid', $objet->id) }}" method="post">
                                 @method('PUT')
                                 @csrf
-                                <input class="input" type="text" name="prix"/>
-                            <button class="button is-info" type="submit">Encherir</button>
+                                <input class="input" type="text" name="prix" max=""/>
+                            <button class="button is-info" type="submit">Enchérir</button>
                     </form>
+                            @if($user = Auth::user()->type == "admin")
                             <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <button class="button is-danger" type="submit">Supprimer</button>
                             </form>
+                            @endif
                         @else
                         @endauth
                     </div>

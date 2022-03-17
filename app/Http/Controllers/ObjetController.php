@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EnchereRequest;
 use App\Http\Requests\ObjetRequest;
+use App\Models\Enchere;
 use Illuminate\Http\Request;
 use App\Models\Objet;
 use App\Models\Categorie;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -74,12 +77,20 @@ class ObjetController extends Controller
      */
     public function show(Objet $objet)
     {
+
+        $objetBDD = DB::table('objets')
+            ->join('categories', 'objets.idCategorie', '=', 'categories.id')
+            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
+            ->where('objets.id','=',$objet->id)
+            ->get();
+
+
         $encheres = DB::table('encheres')
             ->select('*')
             ->where('encheres.idObjet','=',$objet->id)
             ->orderBy('dateEnchere','desc')
             ->get();
-        return view('objet/showObjet', compact('objet', 'encheres'));
+        return view('objet/showObjet', compact('objet', 'encheres','objetBDD'));
     }
 
     /**
@@ -119,31 +130,36 @@ class ObjetController extends Controller
     {
         $succes=0;
         $prixObj= $_POST['prix'];
+        $dateJour = date('Y-m-d h:i:s', time());
         $idObj =$objet->id;
         $objetBDD = DB::table('objets')
             ->select('*')
             ->where('objets.id','=',$objet->id)
             ->get();
 
+
         foreach ($objetBDD as $good) {
             $prixBDD = $good->prix;
-            if ($prixObj > $prixBDD) {
-                $objet->update($Orequest->all());
-                $succes = 1;
+            if ($prixObj > $prixBDD && $good->dateFermeture > $dateJour ) {
                 $enchere->prixEnchere=$prixObj;
                 $enchere->idObjet=$idObj;
                 $enchere->idEncherisseur= Auth::user()->id;
                 $enchere->dateEnchere= date('Y-m-d h:i:s', time());
                 $enchere->save($Erequest->all());
+
+                $objet->update($Orequest->all());
+
+                $succes = 1;
+
             }
         }
 
 
 
         if($succes==1){
-            return redirect::back()->with('info', 'L\'enchere a été pris en compte');
+            return redirect::back()->with('info', 'L\'enchère a été pris en compte');
         }else{
-            return redirect::back()->with('info', 'Le prix d\'enchere doit etre supérieur au prix d\'origine objet : '.$prixObj.' prixBdd : '.$prixBDD);
+            return redirect::back()->with('danger', 'Le prix d\'enchère doit être supérieur au prix d\'origine de l\'objet');
 
         }
     }

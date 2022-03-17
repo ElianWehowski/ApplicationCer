@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'type' => "admin"
         ]);
         // Catégories
-        Categorie::factory(Categorie::class)->create(['libelle'=>'électroménagers']);
+        Categorie::factory(Categorie::class)->create(['libelle'=>'Électroménagers']);
         Categorie::factory(Categorie::class)->create(['libelle'=>'vacances']);
         Categorie::factory(Categorie::class)->create(['libelle'=>'emplois']);
         Categorie::factory(Categorie::class)->create(['libelle'=>'vehicules']);

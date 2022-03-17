@@ -14,7 +14,7 @@ class ObjetFactory extends Factory
      */
     public function definition()
     {
-        $joursApres=random_int(2,20);
+        $minApres=random_int(5,20);
         return [
             'prix' => $this->faker->numberBetween(1,1500),
             'idProprietaire' => $this->faker->numberBetween(0,7),
@@ -22,8 +22,8 @@ class ObjetFactory extends Factory
             'idAcheteur' => null,
             'nom' => $this->faker->text(10),
             'idCategorie' => $this->faker->numberBetween(2,15),
-            'dateOuverture' => $this->faker->dateTimeBetween('-1 month', '-10 days'),
-            'dateFermeture' => $this->faker->dateTimeBetween('+1 days', "+$joursApres days"),
+            'dateOuverture' => $this->faker->dateTimeBetween('-1 hour', '-10 minute'),
+            'dateFermeture' => $this->faker->dateTimeBetween('+1 minute', "+$minApres minute"),
             'vendu' => "0",
         ];
     }

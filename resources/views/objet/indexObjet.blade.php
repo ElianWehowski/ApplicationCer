@@ -56,7 +56,7 @@
                     <option value="{{ route('objet.index') }}">Toutes les catégories</option>
                     @foreach($categories as $categorie)
                         <option value="{{ route('objet.categorie', $categorie->id) }}"
-                            {{ $idCate == $categorie->id ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                            {{ $idCate == $categorie->id ? 'selected' : '' }}>{{ ucfirst($categorie->libelle) }}</option>
                     @endforeach
                 </select>
 
