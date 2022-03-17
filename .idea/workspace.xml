@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Categorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Objet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Objet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +178,7 @@
       <workItem from="1646922866437" duration="2281000" />
       <workItem from="1646987857231" duration="20000" />
       <workItem from="1647334131506" duration="4733000" />
-      <workItem from="1647500544231" duration="7539000" />
+      <workItem from="1647500544231" duration="8129000" />
     </task>
     <servers />
   </component>

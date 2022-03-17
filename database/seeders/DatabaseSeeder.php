@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
     {
         Categorie::factory(15)->create();
         User::factory(7)->create();
-        Objet::factory(100)->create();
         Enchere::factory(30)->create();
+
         $ids = range(1, 10);
-        Objet::factory()->count(30)->create()->each(function ($personnage) use($ids) {
+        Objet::factory()->count(100)->create()->each(function ($objets) use($ids) {
             shuffle($ids);
-            $personnage->albums()->attach(array_slice($ids, 0, rand(1, 5)));
+            $objets->categories()->attach(array_slice($ids, 0, rand(1, 5)));
         });
     }
 }

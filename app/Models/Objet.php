@@ -22,4 +22,8 @@ class Objet extends Model
 //retourne la collection de personnages pour un album
         return $this->belongsToMany(Categorie::class);
     }
+    public function objets(){
+//retourne la collection de personnages pour un album
+        return $this->belongsToMany(Objet::class);
+    }
 }
