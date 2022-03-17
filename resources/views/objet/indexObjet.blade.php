@@ -26,6 +26,8 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
+                        <a class="button is-info" > IdUtilisateur : {{ $userid =Auth::user()->type}} </a>
+
                     <!--<a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
                         <a class="button is-info" href="{{ route('objet.create') }}">Créer une enchere</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -33,7 +35,7 @@
                             <x-dropdown-link class="button is-info" :href="route('logout')"
                                              onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Déconnexion') }}
                             </x-dropdown-link>
 
                         </form>
@@ -87,17 +89,27 @@
                             <td>{{ $objet->prix }} </td>
                             <td>{{ $objet->dateOuverture }} </td>
                             <td>{{ $objet->dateFermeture }} </td>
-                            @csrf
                             <td><a class="button is-primary" href="{{ route('objet.show', $objet->id) }}">Voir</a></td>
-                            @csrf
-                            <td><a class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
-                            <td>
-                                <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button class="button is-danger" type="submit">Supprimer</button>
-                                </form>
-                            </td>
+
+                            @if (Route::has('login'))
+
+                                    @auth
+                                    @if($user = Auth::user()->type == "admin")
+                                        @csrf
+                                        <td><a class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
+                                        <td>
+                                            <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button class="button is-danger" type="submit">Supprimer</button>
+                                            </form>
+                                        </td>
+
+
+                                    @endauth
+                                @endif
+                            @endif
+
                         </tr>
                     @endif
                 @endforeach
