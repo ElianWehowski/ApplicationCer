@@ -21,6 +21,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::put('/objet/{objet}/bid', [ObjetController::class, 'bid'])->name('objet.bid');
+
 Route::resource('objet',ObjetController::class);
 Route::resource('utilisateur',UtilisateurController::class);
 Route::resource('enchere',EnchereController::class);

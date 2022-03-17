@@ -79,7 +79,7 @@ class ObjetController extends Controller
      */
     public function edit(Objet $objet)
     {
-        return view('objet/editObjet', compact('objet'));
+        return view('objet/editObjet', compact('objet',));
     }
 
     /**
@@ -93,6 +93,37 @@ class ObjetController extends Controller
     {
         $objet->update($request->all());
         return redirect()->route('objet.index')->with('info', 'Le pays a bien été modifié');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function bid(ObjetRequest $request, Objet $objet)
+    {
+        $succes=0;
+        $objetBDD = DB::table('objets')
+            ->select('*')
+            ->where('objets.id','=',$objet->id)
+            ->get();
+        foreach ($objetBDD as $good) {
+            $prixBDD = $good->prix;
+            if ($objet->prix > $prixBDD) {
+                $objet->update($request->all());
+                $succes = 1;
+            }
+        }
+
+
+        if($succes==1){
+            return redirect()->route('objet.index')->with('info', 'L\'enchere a été pris en compte');
+        }else{
+            return redirect()->route('objet.index')->with('info', 'Le prix d\'enchere doit etre supérieur au prix d\'origine objet : '.$objet->prix.' prixBdd : '.$prixBDD);
+
+        }
     }
 
     /**

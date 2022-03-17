@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         User::factory(7)->create();
         Objet::factory(100)->create();
         Enchere::factory(30)->create();
+        $ids = range(1, 10);
+        Objet::factory()->count(30)->create()->each(function ($personnage) use($ids) {
+            shuffle($ids);
+            $personnage->albums()->attach(array_slice($ids, 0, rand(1, 5)));
+        });
     }
 }
