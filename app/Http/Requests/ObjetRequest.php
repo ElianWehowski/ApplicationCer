@@ -25,13 +25,13 @@ class ObjetRequest extends FormRequest
     {
         return [
             'prix'=>'',
-            'proprietaire'=>'',
-            'acheteur'=>'',
-            'nom'=>'',
-            'categorie'=>'',
-            'dateOuverture'=>'',
-            'dateFermeture'=>'',
-            'vendu'=>'',
+            'proprietaire'=>'numeric',
+            'acheteur'=>'numeric',
+            'nom'=>'String',
+            'categorie'=>'numeric',
+            'dateOuverture'=>'date',
+            'dateFermeture'=>'date',
+            'vendu'=>'min:0|max:1   ',
         ];
     }
 }

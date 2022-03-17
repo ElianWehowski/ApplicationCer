@@ -25,24 +25,21 @@
             <p class="card-header-title">Liste des objets</p>
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-8 py-6 sm:block">
-                @auth
-
-
-                        <div class="button" disabled=""> Utilisateur : {{ $userid =Auth::user()->name}} </div><!--
-                        <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
-
+                    @auth
+                        <div class="button" disabled=""> Utilisateur : {{ $userid =Auth::user()->name}} </div>
                         <div class="dropdown is-hoverable">
                             <div class="dropdown-trigger">
                                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                    <span><a>Menu déroulant</a></span>
+                                    <span><a>Gestion</a></span>
                                 </button>
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu" role="menu">
 
                                 <div class="dropdown-content">
                                     @if(Auth::user()->type == "admin")
-                                    <a class="dropdown-item" href="{{ route('enchere.create') }}">Créer une enchere</a>
-                                    <a class="dropdown-item" href="{{ route('categorie.create') }}">Créer une catégorie</a>
+                                        <a class="dropdown-item" href="{{ route('enchere.create') }}">Créer une enchère</a>
+                                        <a class="dropdown-item" href="{{ route('categorie.create') }}">Créer une catégorie</a>
+                                        <a class="dropdown-item" href="{{ route('objet.flush') }}">Changer les données</a>
                                     @endif
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -72,10 +69,7 @@
                             {{ $idCate == $categorie->id ? 'selected' : '' }}>{{ ucfirst($categorie->libelle) }}</option>
                     @endforeach
                 </select>
-
             </div>
-
-
             <table class="table is-hoverable">
                 <thead>
                 <tr>
@@ -119,7 +113,7 @@
                                                     <button class="button is-danger" type="submit">Supprimer</button>
                                                 </form>
                                             </td>
-
+                            </tr>
                         @endif
                     @endauth
                     @endif
@@ -143,27 +137,13 @@
 
                                 <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
                                 <td><a class="button is-danger" disabled>Fermé</a></td>
-
-                                @if (Route::has('login'))
-
-                                    @auth
-                                        @if($user = Auth::user()->type == "admin")
-                                            @csrf
-                                            <td>
-                                                <button class="button is-danger" type="submit" disabled>Supprimer</button>
-                                            </td>
-
-
-                                        @endif
-                                    @endauth
-                    @endif
-                    @endif
+                            </tr>
+                    @endauth
                     @endif
 
                 @endforeach
                 </tbody>
             </table>
-
         </div>
     </div>
 @endsection

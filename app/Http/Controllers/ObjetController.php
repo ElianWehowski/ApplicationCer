@@ -8,6 +8,7 @@ use App\Models\Enchere;
 use Illuminate\Http\Request;
 use App\Models\Objet;
 use App\Models\Categorie;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -47,6 +48,13 @@ class ObjetController extends Controller
     {
         $categories=Categorie::all();
         return view('objet/createObjet', compact('categories'));
+    }
+
+    public function flush()
+    {
+        Artisan::call('migrate:fresh');
+        Artisan::call('db:seed');
+        return \redirect()->route('objet.index');
     }
 
     /**
@@ -124,13 +132,16 @@ class ObjetController extends Controller
      */
     public function update(ObjetRequest $request, Objet $objet)
     {
+
         $objet->update($request->all());
-        return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été modifié');
+        //return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été modifié'.var_dump($objet));
+        var_dump($_POST);
+        echo "----------------------------- <br/>";
+        var_dump($objet);
     }
 
     /**
-<<<<<<< Updated upstream
-=======
+
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -181,7 +192,6 @@ class ObjetController extends Controller
     }
 
     /**
->>>>>>> Stashed changes
      * Remove the specified resource from storage.
      *
      * @param  int  $id

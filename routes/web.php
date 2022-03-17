@@ -28,6 +28,10 @@ Route::resource('enchere',EnchereController::class);
 Route::resource('categorie',CategorieController::class);
 
 Route::get('/', [ObjetController::class,'index']);
+
+Route::get('/feed', [ObjetController::class,'feed'])->name('objet.feed');
+Route::get('/flush', [ObjetController::class,'flush'])->name('objet.flush');
+
 Route::get('objet/{idCate}/categories', [ObjetController::class, 'index'])->name('objet.categorie');
 //Route::post('/objet', [ObjetController::class, 'index']);
 

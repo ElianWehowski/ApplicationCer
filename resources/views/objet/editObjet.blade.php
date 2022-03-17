@@ -1,5 +1,13 @@
 @extends('template1')
 @section('contenu')
+
+<?php
+$dOuverture = date_create($objet->dateOuverture);
+$dOuverture = strtotime($dOuverture->format('Y-m-d\TH:i:s'));
+$dFermeture = date_create($objet->dateFermeture);
+$dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
+var_dump($objet);
+?>
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">Modification d'une enchère</p>
@@ -32,9 +40,9 @@
                     <div class="field">
                         <label class="label">Catégorie</label>
                         <div class="control">
-                            <select class="select" name="categorie">
+                            <select class="select" name="idCategorie">
                                 @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('categorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                                    <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('idCategorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -43,19 +51,19 @@
                         @enderror
                     </div>
                     <div class="field">
-                        <label for="ouverture" class="label">ouverture</label>
+                        <label for="dateOuverture" class="label">ouverture</label>
                         <div class="control">
-                            <input class="input" id="ouverture" type="datetime-local"  name="ouverture" value="{{ old('unite',$objet->dateOuverture) }}" >
-                            @error('ouverture')
+                            <input class="input" id="dateOuverture" type="datetime-local"  name="dateOuverture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dOuverture)) }}" >
+                            @error('dateOuverture')
                             <div class="invalid-feedback">La superficie est obligatoire et doit faire moins de 2147483645m²</div>
                             @enderror
                         </div>
                     </div>
                     <div class="field">
-                        <label for="fermeture" class="label">fermeture</label>
+                        <label for="dateFermeture" class="label">fermeture</label>
                         <div class="control">
-                            <input class="input" id="fermeture" type="datetime-local"  name="fermeture" value="{{ old('unite',$objet->dateFermeture) }}" >
-                            @error('fermeture')
+                            <input class="input" id="dateFermeture" type="datetime-local"  name="dateFermeture" value="{{ old('unite',date('Y-m-d\TH:i:s',strtotime($dFermeture))) }}" >
+                            @error('dateFermeture')
                             <div class="invalid-feedback">La superficie est obligatoire et doit faire moins de 2147483645m²</div>
                             @enderror
                         </div>
