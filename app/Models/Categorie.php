@@ -9,4 +9,9 @@ class Categorie extends Model
 {
     use HasFactory;
     protected $fillable = ['libelle'];
+
+    public function objets(){
+//retourne la collection de personnages pour un album
+        return $this->belongsToMany(Objet::class);
+    }
 }

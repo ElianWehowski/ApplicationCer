@@ -51,20 +51,16 @@
 
         </header>
         <div class="card-content">
-            <form action="{{ route('objet.index') }}" method="POST">
-                @csrf
-                <select name="categorie" id="cherchecategorie">
-                    <option value = "rien">tout afficher</option>
-                    @foreach($categories as $cat)
-                        @if(isset($_POST['categorie']) && $cat->id == $_POST['categorie'])
-                            <option value = "{{$cat->id}}" selected>{{$cat->libelle}}</option>
-                        @else
-                            <option value = "{{$cat->id}}">{{$cat->libelle}}</option>
-                        @endif
+            <div class="select">
+                <select onchange="window.location.href = this.value">
+                    <option value="{{ route('objet.index') }}" @unless($idCate) selected @endunless>Toutes les catégories</option>
+                    @foreach($categories as $categorie)
+                        <option value="{{ route('objet.categorie', $categorie->id) }}"
+                            {{ $idCate == $categorie->libelle ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
                     @endforeach
                 </select>
-                <button type="submit">Rechercher</button>
-            </form>
+
+            </div>
 
 
             <table class="table is-hoverable" >
