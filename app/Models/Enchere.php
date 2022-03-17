@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Enchere extends Model
 {
+    public $timestamps = false;
     use HasFactory;
-    protected $fillable = ['prixEnchere','idObjet','idProprietaire'];
+    protected $fillable = ['prixEnchere','idObjet','idProprietaire','dateEnchere'];
 
 }

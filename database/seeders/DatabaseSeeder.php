@@ -20,7 +20,18 @@ class DatabaseSeeder extends Seeder
         Objet::factory(80)->create();
         User::factory(7)->create();
         Enchere::factory(30)->create();
-
+        User::factory(User::class)->create([
+            'name' => 'aze',
+            'email' => 'aze@aze.aze',
+            'password' => bcrypt('aze'),
+            'type' => "participant"
+        ]);
+        User::factory(User::class)->create([
+            'name' => 'admin',
+            'email' => 'admin@admin.admin',
+            'password' => bcrypt('admin'),
+            'type' => "admin"
+        ]);
 
     }
 }

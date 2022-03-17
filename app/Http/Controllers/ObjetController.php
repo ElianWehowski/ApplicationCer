@@ -126,7 +126,7 @@ class ObjetController extends Controller
                 $enchere->prixEnchere=$prixObj;
                 $enchere->idObjet=$idObj;
                 $enchere->idEncherisseur= Auth::user()->id;
-                $enchere->dateEnchere= DateTimeInterface::ISO8601;
+                $enchere->dateEnchere= date("Y-m-d h:i:sa");
                 $enchere->save($Erequest->all());
             }
         }
