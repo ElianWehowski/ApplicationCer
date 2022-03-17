@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         //Categorie::factory(15)->create();
         Objet::factory(80)->create();
         User::factory(7)->create();
-        Enchere::factory(160)->create();
+        Enchere::factory(260)->create();
 
 
         // Users par défault

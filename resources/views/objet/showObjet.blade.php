@@ -29,7 +29,7 @@
                         <form action="{{ route('objet.bid', $objet->id) }}" method="post">
                             @method('PUT')
                             @csrf
-                            <input class="input" type="text" name="prix" max=""/>
+                            <input class="input" type="number" name="prix"  value="{{ $objet->prix }}" min="{{ $objet->prix }}" max="500000"/>
                             <button class="button is-info" type="submit">Enchérir</button>
                         </form>
                         @if($user = Auth::user()->type == "admin")

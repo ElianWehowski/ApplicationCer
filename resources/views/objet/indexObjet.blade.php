@@ -27,8 +27,8 @@
                 <div class="hidden fixed top-0 right-0 px-8 py-6 sm:block">
                 @auth
 
-                    <!--
-                      {{ $userid =Auth::user()->name}}
+
+                        <div class="button" disabled=""> Utilisateur : {{ $userid =Auth::user()->name}} </div><!--
                         <a class="button is-info" href="{{ url('/dashboard') }}" >Dashboard</a> !-->
 
                         <div class="dropdown is-hoverable">
@@ -38,21 +38,25 @@
                                 </button>
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu" role="menu">
+
                                 <div class="dropdown-content">
-                                    <a class="dropdown-item" href="{{ route('objet.create') }}">Créer une enchere</a>
-                                    <a class="dropdown-item" href="{{ route('objet.create') }}">Créer une catégorie</a>
+                                    @if(Auth::user()->type == "admin")
+                                    <a class="dropdown-item" href="{{ route('enchere.create') }}">Créer une enchere</a>
+                                    <a class="dropdown-item" href="{{ route('categorie.create') }}">Créer une catégorie</a>
+                                    @endif
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a class="dropdown-item" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();"> {{ __('Déconnexion') }} </a>
                                     </form>
                                 </div>
+
                             </div>
                         </div>
                     @else
                         <a class="button is-info" href="{{ route('login') }}" >Se connecter</a>
 
                         @if (Route::has('register'))
-                            <a  class="button is-info" href="{{ route('register') }}" >S'inscrire</a>
+                            <a  class="button is-info" href="{{ route('register') }}">S'inscrire</a>
                         @endif
                     @endauth
                 </div>
@@ -72,7 +76,7 @@
             </div>
 
 
-            <table class="table is-hoverable" >
+            <table class="table is-hoverable">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -84,47 +88,79 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php
+                $currentDate = date('Y-m-d H:i:s', time());
+                ?>
                 @foreach($toutLesObjets as $objet)
 
                     @if($objet->idCategorie == $idCate || $idCate==null)
-                        <tr>
-                            <td>{{ $objet->id }}</td>
-                            <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
-                            <td>{{ ucfirst($objet->nom)}}</td>
-                            <td>{{ $objet->prix }} </td>
-                            <td>{{ $objet->dateOuverture }} </td>
-                            <td>{{ $objet->dateFermeture }} </td>
-                            <?php
-                            $currentDate = date('Y-m-d h:i:s', time());
-                            ?>
-                            @if ( $objet->dateFermeture > $currentDate )
+                        @if ( $objet->dateFermeture > $currentDate )
+                            <tr>
+                                <td>{{ $objet->id }}</td>
+                                <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
+                                <td>{{ ucfirst($objet->nom)}}</td>
+                                <td>{{ $objet->prix }} </td>
+                                <td>{{ $objet->dateOuverture }} </td>
+                                <td>{{ $objet->dateFermeture }} </td>
+
 
                                 <td><a class="button is-primary" href="{{ route('objet.show', $objet->id) }}">Ouvert</a></td>
-                            @else
+
+                                @if (Route::has('login'))
+
+                                    @auth
+                                        @if($user = Auth::user()->type == "admin")
+                                            @csrf
+                                            <td><a class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
+                                            <td>
+                                                <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                                    <button class="button is-danger" type="submit">Supprimer</button>
+                                                </form>
+                                            </td>
+
+                        @endif
+                    @endauth
+                    @endif
+                    @endif
+                    @endif
+
+                @endforeach
+
+                @foreach($toutLesObjets as $objet)
+
+                    @if($objet->idCategorie == $idCate || $idCate==null)
+                        @if ( $objet->dateFermeture < $currentDate )
+                            <tr>
+                                <td>{{ $objet->id }}</td>
+                                <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
+                                <td>{{ ucfirst($objet->nom)}}</td>
+                                <td>{{ $objet->prix }} </td>
+                                <td>{{ $objet->dateOuverture }} </td>
+                                <td>{{ $objet->dateFermeture }} </td>
+
+
+                                <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
                                 <td><a class="button is-danger" disabled>Fermé</a></td>
-                            @endif
-                            @if (Route::has('login'))
 
-                                @auth
-                                    @if($user = Auth::user()->type == "admin")
-                                        @csrf
-                                        <td><a class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
-                                        <td>
-                                            <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button class="button is-danger" type="submit">Supprimer</button>
-                                            </form>
-                                        </td>
+                                @if (Route::has('login'))
+
+                                    @auth
+                                        @if($user = Auth::user()->type == "admin")
+                                            @csrf
+                                            <td>
+                                                <button class="button is-danger" type="submit" disabled>Supprimer</button>
+                                            </td>
 
 
+                                        @endif
                                     @endauth
-                                @endif
-                            @endif
-                            @endif
-                        </tr>
+                    @endif
+                    @endif
+                    @endif
 
-                        @endforeach
+                @endforeach
                 </tbody>
             </table>
 

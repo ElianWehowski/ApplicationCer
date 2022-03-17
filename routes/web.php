@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategorieController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ObjetController;
 use \App\Http\Controllers\EnchereController;
@@ -24,6 +25,7 @@ Route::put('/objet/{objet}/bid', [ObjetController::class, 'bid'])->name('objet.b
 
 Route::resource('objet',ObjetController::class);
 Route::resource('enchere',EnchereController::class);
+Route::resource('categorie',CategorieController::class);
 
 Route::get('/', [ObjetController::class,'index']);
 Route::get('objet/{idCate}/categories', [ObjetController::class, 'index'])->name('objet.categorie');

@@ -15,7 +15,7 @@ class EnchereFactory extends Factory
     {
         $joursApres=random_int(1,3);
             return [
-                'idObjet' =>  $this->faker->numberBetween(0,10),
+                'idObjet' =>  $this->faker->numberBetween(0,80),
                 'idEncherisseur' => $this->faker->numberBetween(0,7),
                 'prixEnchere' => $this->faker->numberBetween(0,200),
                 'dateEnchere' => $this->faker->dateTimeBetween('+1 minute', "+$joursApres minutes"),

@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/EnchereFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EnchereFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ObjetFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ObjetFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/enchere/createObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/enchere/showObjet.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,13 +153,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/categorie" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ProjetCER\resources\views\categorie" />
       <recent name="C:\wamp64\www\ProjetCER\resources\views" />
       <recent name="C:\wamp64\www\ProjetCER\resources\views\objet" />
     </key>
@@ -180,7 +187,7 @@
       <workItem from="1646922866437" duration="2281000" />
       <workItem from="1646987857231" duration="20000" />
       <workItem from="1647334131506" duration="4733000" />
-      <workItem from="1647500544231" duration="25540000" />
+      <workItem from="1647500544231" duration="33812000" />
     </task>
     <servers />
   </component>

@@ -32,6 +32,7 @@ class ObjetController extends Controller
             ->orderBy('id','asc')
             ->get();
 
+
         $categories = DB::table('categories')->get();
         return view('objet/indexObjet',compact('toutLesObjets', 'categories', 'idCate'));
     }
@@ -94,6 +95,8 @@ class ObjetController extends Controller
         return view('objet/showObjet', compact('objet', 'encheres','objetBDD'));
     }
 
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -139,7 +142,7 @@ class ObjetController extends Controller
         $late=0;
         $succes=0;
         $prixObj= $_POST['prix'];
-        $currentDate = date('Y-m-d h:i:s', time());
+        $currentDate = date('Y-m-d H:i:s', time());
         $idObj =$objet->id;
         $objetBDD = DB::table('objets')
             ->select('*')
