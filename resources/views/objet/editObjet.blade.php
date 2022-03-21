@@ -62,7 +62,7 @@ var_dump($objet);
                     <div class="field">
                         <label for="dateFermeture" class="label">fermeture</label>
                         <div class="control">
-                            <input class="input" id="dateFermeture" type="datetime-local"  name="dateFermeture" value="{{ old('unite',date('Y-m-d\TH:i:s',strtotime($dFermeture))) }}" >
+                            <input class="input" id="dateFermeture" type="datetime-local"  name="dateFermeture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dFermeture)) }}" >
                             @error('dateFermeture')
                             <div class="invalid-feedback">La superficie est obligatoire et doit faire moins de 2147483645m²</div>
                             @enderror
