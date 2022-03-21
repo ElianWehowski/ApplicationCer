@@ -6,7 +6,7 @@ $dOuverture = date_create($objet->dateOuverture);
 $dOuverture = strtotime($dOuverture->format('Y-m-d\TH:i:s'));
 $dFermeture = date_create($objet->dateFermeture);
 $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
-var_dump($objet);
+//var_dump($objet);
 ?>
     <div class="card">
         <header class="card-header">
@@ -41,12 +41,14 @@ var_dump($objet);
                         <label class="label">Catégorie</label>
                         <div class="control">
                             <select class="select" name="idCategorie">
+                                {{$count=0}}
                                 @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('idCategorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                                    {{ $count +=1 }}
+                                    <option value="{{ $categorie->id }}" {{ $count==$objet->idCategorie ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        @error('categorie')
+                        @error('idCategorie')
                         <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </div>
