@@ -18,6 +18,7 @@
             {{ session('info') }}
         </div>
     @endif
+    <img src="images/logoCer.png" width="150px"height="150px"><br/><br/>
 
     <div class="card" style="width:100%">
 

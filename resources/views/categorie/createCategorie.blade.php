@@ -1,5 +1,7 @@
 @extends('template1')
 @section('contenu')
+    <a href="{{route('objet.index')}}"><img src="../images/logoCer.png" width="150px"height="150px" ><br/><br/></a>
+
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">Création d'une enchère</p>

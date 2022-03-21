@@ -10,6 +10,7 @@
             {{ session('danger') }}
         </div>
     @endif
+    <a href="{{route('objet.index')}}"><img src="../images/logoCer.png" width="150px"height="150px" ><br/><br/></a>
 
     <div class="card">
         <header class="card-header">
@@ -29,17 +30,21 @@
                         <form action="{{ route('objet.bid', $objet->id) }}" method="post">
                             @method('PUT')
                             @csrf
-                            <input class="input" type="number" name="prix"  value="{{ $objet->prix }}" min="{{ $objet->prix }}" max="500000"/>
+                            <input class="input" type="number" name="prix" value="{{ $objet->prix }}" min="{{ $objet->prix }}" max="500000"/>
                             <button class="button is-info" type="submit">Enchérir</button>
                         </form>
+                                <br/>
+
                         @if($user = Auth::user()->type == "admin")
-                            <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
+                                <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button class="button is-danger" type="submit">Supprimer</button>
+                              <button class="button is-danger" type="submit">Supprimer</button>
                             </form>
-                        @endif
+
+                    @endif
                     @else
+
                     @endauth
                 </div>
             @endif

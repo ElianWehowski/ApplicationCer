@@ -6,7 +6,6 @@
         <title>ApplicationCer'</title>
         <!--url() construit une urle à partir de l'URL courante : public-->
         <link rel="stylesheet" href="{{ url('css/bulma.min.css') }}" />
-
         @yield('css')
       </head>
       <body>
@@ -15,5 +14,6 @@
                 @yield('contenu')
             </div>
         </main>
+
       </body>
     </html>
