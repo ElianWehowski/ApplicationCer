@@ -81,7 +81,7 @@ class EnchereController extends Controller
             ->join('users', 'encheres.idEncherisseur', '=', 'users.id')
             ->select('*','users.id as userId','users.name as userName')
             ->where('encheres.idObjet','=',$enchere->id)
-            ->orderBy('dateEnchere','desc')
+            ->orderBy('prixEnchere','asc')
             ->get();
         return view('enchere/showEnchere', compact('enchere', 'encheres','enchereBDD'));
     }
