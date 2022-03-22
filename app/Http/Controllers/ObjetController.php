@@ -135,9 +135,7 @@ class ObjetController extends Controller
         $objet->idCategorie = $_POST['idCategorie'];
         $objet->update($request->all());
         return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été modifié');
-//        var_dump($_POST);
-//        echo "----------------------------- <br/>";
-//        var_dump($objet);
+
     }
 
     /**
