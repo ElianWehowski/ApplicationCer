@@ -8,4 +8,8 @@ use App\Models\Objet;
 
 class ObjetControllerTest extends TestCase
 {
+    protected $objet;
+
+
+
 }

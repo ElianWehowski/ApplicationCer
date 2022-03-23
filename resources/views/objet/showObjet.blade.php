@@ -32,7 +32,7 @@
                             @csrf
                             <input class="input" type="number" name="prix" value="{{ $objet->prix }}" min="{{ $objet->prix }}" max="500000"/>
                             <br><br>
-                            <button class="button is-info" type="submit">Enchérir</button>
+                            <button class="button is-info" type="submit" >Enchérir</button>
                         </form>
                                 <br/>
 

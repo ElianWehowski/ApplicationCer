@@ -99,19 +99,19 @@
                                 <td>{{ $objet->dateFermeture }} </td>
 
 
-                                <td><a class="button is-primary" href="{{ route('objet.show', $objet->id) }}">Ouvert</a></td>
+                                <td><a class="button is-primary" id="enchérir-{{$objet->id}}" href="{{ route('objet.show', $objet->id) }}">Ouvert</a></td>
 
                                 @if (Route::has('login'))
 
                                     @auth
                                         @if($user = Auth::user()->type == "admin")
                                             @csrf
-                                            <td><a class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
+                                            <td><a id="enchérir-{{$objet->id}}" class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
                                             <td>
                                                 <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
-                                                    <button class="button is-danger" type="submit">Supprimer</button>
+                                                    <button class="button is-danger" type="submit" id="enchérir-{{$objet->id}}">Supprimer</button>
                                                 </form>
                                             </td>
                             </tr>
