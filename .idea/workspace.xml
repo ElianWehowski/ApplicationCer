@@ -4,8 +4,6 @@
     <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Objet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Objet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +193,7 @@
       <workItem from="1647940511657" duration="1775000" />
       <workItem from="1648108019349" duration="64000" />
       <workItem from="1648108094803" duration="235000" />
-      <workItem from="1648108341509" duration="4999000" />
+      <workItem from="1648108341509" duration="5607000" />
     </task>
     <servers />
   </component>

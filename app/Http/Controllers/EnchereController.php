@@ -89,15 +89,16 @@ class EnchereController extends Controller
             ->get();
 
         $currentDate = date('Y-m-d H:i:s', time());
+        if(sizeof($encheres)>0){
+            foreach ($objetBDD as $goodItem){
+                $taille = sizeof($encheres)-1;
+                if ($goodItem->dateFermeture < $currentDate ) {
+                    $goodItem->vendu=1;
+                    $goodItem->idAcheteur=$encheres[$taille]->idEncherisseur;
 
-        foreach ($objetBDD as $goodItem){
-            $taille = sizeof($encheres)-1;
-            if ($goodItem->dateFermeture < $currentDate ) {
-                $goodItem->vendu=1;
-                $goodItem->idAcheteur=$encheres[$taille]->idEncherisseur;
 
-
-                $this->sold($objetBDD);
+                    $this->sold($objetBDD);
+                }
             }
         }
         return view('enchere/showEnchere', compact('enchere', 'encheres','enchereBDD'));
@@ -114,18 +115,10 @@ class EnchereController extends Controller
             ->get();
         $taille = sizeof($encheres)-1;
         $idEncherisseur= $encheres[$taille]->idEncherisseur;
-        var_dump($objet);
-        echo "id enche".$idEncherisseur;
-
 
         DB::table('objets')
             ->where('objets.id',$objet[0]->id)
             ->update(['idAcheteur' => $idEncherisseur,'vendu' => 1]);
-
-        /*       $objet[0]->vendu=1;
-        $objet[0]->idAcheteur=$encheres[$taille]->idEncherisseur;
-        $objet[0]->update();*/
-
     }
 
     /**
