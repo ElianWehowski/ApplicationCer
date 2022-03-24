@@ -28,6 +28,8 @@ class CreateObjetTable extends Migration
             $table->dateTime('dateFermeture');
 
             $table->boolean('vendu');
+            $table->dateTime('dateVendu');
+
             $table->timestamps();
 
             $table->foreign('idAcheteur')->references('idUtilisateur')->on('utilisateurs');

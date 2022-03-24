@@ -93,6 +93,7 @@
                 <tbody>
                 <?php
                 $currentDate = date('Y-m-d H:i:s', time());
+                $currentDatePlus10 = date('Y-m-d H:i:s', strtotime("+5 minutes"));
                 ?>
                 @foreach($toutLesObjets as $objet)
 
@@ -130,11 +131,10 @@
                     @endif
 
                 @endforeach
-
                 @foreach($toutLesObjets as $objet)
-
                     @if($objet->idCategorie == $idCate || $idCate==null)
-                        @if ( $objet->dateFermeture < $currentDate )
+                        @if ( ($objet->dateFermeture < $currentDate) )
+
                             <tr>
                                 <td>{{ $objet->id }}</td>
                                 <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
@@ -143,11 +143,10 @@
                                 <td>{{ $objet->dateOuverture }} </td>
                                 <td>{{ $objet->dateFermeture }} </td>
 
-
                                 <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
                                 <td><a class="button is-danger" disabled>Fermé</a></td>
                             </tr>
-                    @endauth
+                    @endif
                     @endif
 
                 @endforeach

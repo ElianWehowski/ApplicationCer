@@ -107,6 +107,8 @@ class EnchereController extends Controller
 
     public function sold($objet)
     {
+        $currentDate = date('Y-m-d H:i:s', time());
+
         $encheres = DB::table('encheres')
             ->join('users', 'encheres.idEncherisseur', '=', 'users.id')
             ->select('*','users.id as userId','users.name as userName')
@@ -118,7 +120,9 @@ class EnchereController extends Controller
 
         DB::table('objets')
             ->where('objets.id',$objet[0]->id)
-            ->update(['idAcheteur' => $idEncherisseur,'vendu' => 1]);
+            ->update(['idAcheteur' => $idEncherisseur,
+                'vendu' => 1,
+                'dateVendu'=> $currentDate]);
     }
 
     /**
