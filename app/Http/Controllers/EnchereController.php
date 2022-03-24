@@ -7,7 +7,6 @@ use App\Http\Requests\ObjetRequest;
 use App\Models\Categorie;
 use App\Models\Enchere;
 use App\Models\Objet;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class EnchereController extends Controller
@@ -64,9 +63,9 @@ class EnchereController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function show(Objet $enchere)
+    public function show(ObjetRequest $Orequest,Objet $enchere)
     {
 
         $enchereBDD = DB::table('objets')
@@ -83,7 +82,50 @@ class EnchereController extends Controller
             ->where('encheres.idObjet','=',$enchere->id)
             ->orderBy('prixEnchere','asc')
             ->get();
+
+        $objetBDD = DB::table('objets')
+            ->select('*')
+            ->where('objets.id','=',$enchere->id)
+            ->get();
+
+        $currentDate = date('Y-m-d H:i:s', time());
+
+        foreach ($objetBDD as $goodItem){
+            $taille = sizeof($encheres)-1;
+            if ($goodItem->dateFermeture < $currentDate ) {
+                $goodItem->vendu=1;
+                $goodItem->idAcheteur=$encheres[$taille]->idEncherisseur;
+
+
+                $this->sold($objetBDD);
+            }
+        }
         return view('enchere/showEnchere', compact('enchere', 'encheres','enchereBDD'));
+    }
+
+
+    public function sold($objet)
+    {
+        $encheres = DB::table('encheres')
+            ->join('users', 'encheres.idEncherisseur', '=', 'users.id')
+            ->select('*','users.id as userId','users.name as userName')
+            ->where('encheres.idObjet','=',$objet[0]->id)
+            ->orderBy('prixEnchere','asc')
+            ->get();
+        $taille = sizeof($encheres)-1;
+        $idEncherisseur= $encheres[$taille]->idEncherisseur;
+        var_dump($objet);
+        echo "id enche".$idEncherisseur;
+
+
+        DB::table('objets')
+            ->where('objets.id',$objet[0]->id)
+            ->update(['idAcheteur' => $idEncherisseur,'vendu' => 1]);
+
+        /*       $objet[0]->vendu=1;
+        $objet[0]->idAcheteur=$encheres[$taille]->idEncherisseur;
+        $objet[0]->update();*/
+
     }
 
     /**
