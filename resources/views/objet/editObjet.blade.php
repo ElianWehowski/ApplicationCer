@@ -43,10 +43,8 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         <label class="label">Catégorie</label>
                         <div class="control">
                             <select class="select" name="idCategorie">
-                                {{$count=0}}
                                 @foreach($categories as $categorie)
-                                    {{ $count +=1 }}
-                                    <option value="{{ $categorie->id }}" {{ $count==$objet->idCategorie ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                                    <option value="{{ $categorie->id }}" {{ $categorie->id==$objet->idCategorie ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
                                 @endforeach
                             </select>
                         </div>
