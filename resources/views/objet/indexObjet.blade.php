@@ -18,7 +18,15 @@
             {{ session('info') }}
         </div>
     @endif
-    <img src="images/logoCer.png" width="150px"height="150px"><br/><br/>
+    <?php
+    $url = URL::current();
+    if(substr($url,16)==""){
+        echo '<img src="images/logoCer.png" width="150px"height="150px"><br/><br/>';
+    }else{
+        echo '<img src="../../images/logoCer.png" width="150px"height="150px"><br/><br/>';
+    }
+    ?>
+
 
     <div class="card" style="width:100%">
 
