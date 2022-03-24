@@ -23,7 +23,7 @@
     if(substr($url,16)==""){
         echo '<img src="images/logoCer.png" width="150px"height="150px"><br/><br/>';
     }else{
-        echo '<img src="../../images/logoCer.png" width="150px"height="150px"><br/><br/>';
+        echo '<a href="'.route('objet.index').'"><img src="../../images/logoCer.png" width="150px"height="150px"></a><br/><br/>';
     }
     ?>
 
