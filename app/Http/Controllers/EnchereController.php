@@ -121,8 +121,7 @@ class EnchereController extends Controller
         DB::table('objets')
             ->where('objets.id',$objet[0]->id)
             ->update(['idAcheteur' => $idEncherisseur,
-                'vendu' => 1,
-                'dateVendu'=> $currentDate]);
+                'vendu' => 1]);
     }
 
     /**

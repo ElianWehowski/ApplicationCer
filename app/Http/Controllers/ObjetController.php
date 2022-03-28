@@ -73,6 +73,7 @@ class ObjetController extends Controller
         $objet->dateOuverture=$request->ouverture;
         $objet->dateFermeture=$request->fermeture;
         $objet->vendu=0;
+
         $objet->save();
 //        $objet = Objet::create($request->all());
 //        $objet->categorie()->attach($request->categorie);

@@ -24,7 +24,6 @@ class ObjetFactory extends Factory
             'dateOuverture' => $this->faker->dateTimeBetween('-1 hour', '-10 minute'),
             'dateFermeture' => $this->faker->dateTimeBetween('+1 minute', "+$minApres minute"),
             'vendu' => "0",
-            'dateVendu' =>'2010-01-01 00:00:00'
         ];
     }
 }

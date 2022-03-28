@@ -93,7 +93,7 @@
                 <tbody>
                 <?php
                 $currentDate = date('Y-m-d H:i:s', time());
-                $currentDatePlus10 = date('Y-m-d H:i:s', strtotime("+5 minutes"));
+                $currentDatePlus10 = date('Y-m-d H:i:s', strtotime("+10 minutes"));
                 ?>
                 @foreach($toutLesObjets as $objet)
 

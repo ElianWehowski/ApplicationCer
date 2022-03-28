@@ -17,7 +17,7 @@ class Objet extends Model
         'categorie',
         'dateOuverture',
         'dateFermeture',
-        'vendu'
+        'vendu',
     ];
 
 }

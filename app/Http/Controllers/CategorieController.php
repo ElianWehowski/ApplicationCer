@@ -41,7 +41,7 @@ class CategorieController extends Controller
     {
         $categorie->libelle=$request->libelle;
         $categorie->save();
-        return redirect()->route('objet.index')->with('info','L\'enchère ' . $categorie->libelle . ' a été créé');
+        return redirect()->route('objet.index')->with('info','La catégorie ' . $categorie->libelle . ' a été créé');
     }
 
     /**

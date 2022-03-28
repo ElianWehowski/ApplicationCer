@@ -66,6 +66,7 @@
 
 
                 <input type="hidden" name="idProprietaire" value="{{Auth::user()->id}}"></input>
+                <input type="hidden" name="dateVendu" value="2010-01-01 00:00:00"></input>
                 <div class="field">
                     <div class="control">
                         <button class="button is-link">Envoyer</button>
