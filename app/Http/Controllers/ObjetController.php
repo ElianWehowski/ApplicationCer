@@ -201,4 +201,24 @@ class ObjetController extends Controller
         $objet->delete();
         return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été supprimé');
     }
+
+
+    public function view()
+    {
+        if(!isset($idCate)){
+            $idCate=null;
+        }
+
+        $toutLesObjets=DB::table('objets')
+            ->join('categories', 'objets.idCategorie', '=', 'categories.id')
+            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
+            ->orderBy('id','asc')
+            ->where('idAcheteur','=', Auth::user()->id)
+            ->get();
+
+
+        $categories = DB::table('categories')->get();
+        return view('objet/viewObjet', compact('toutLesObjets','categories','idCate'));
+    }
+
 }

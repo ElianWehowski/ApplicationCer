@@ -33,6 +33,8 @@ Route::get('/', [ObjetController::class,'index']);
 Route::get('/feed', [ObjetController::class,'feed'])->name('objet.feed');
 Route::get('/flush', [ObjetController::class,'flush'])->name('objet.flush');
 
+Route::get('/view', [ObjetController::class,'view'])->name('objet.view');
+
 Route::get('objet/{idCate}/categories', [ObjetController::class, 'index'])->name('objet.categorie');
 
 require __DIR__.'/auth.php';
