@@ -39,9 +39,23 @@ class CategorieController extends Controller
      */
     public function store(CategorieRequest $request,Categorie $categorie)
     {
-        $categorie->libelle=$request->libelle;
-        $categorie->save();
-        return redirect()->route('objet.index')->with('info','La catégorie ' . $categorie->libelle . ' a été créé');
+        $cats = Categorie::all();
+        $valid =true;
+        foreach ($cats as $cat){
+            if(strtolower($cat->libelle) == strtolower($request->libelle)){
+                $valid = false;
+            }
+        }
+        if($valid){
+            $categorie->libelle=$request->libelle;
+            $categorie->save();
+            return redirect()->route('objet.index')->with('info','La catégorie ' . $categorie->libelle . ' a été créé');
+        }
+        else{
+            $categories=Categorie::all();
+            $erreur = true;
+            return view('categorie/createCategorie', compact('categories','erreur'));
+        }
     }
 
     /**

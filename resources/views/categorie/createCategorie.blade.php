@@ -14,18 +14,21 @@
                         <label class="label">Libelle de la categorie</label>
                         <div class="control">
                             <input class="input" type="text" name="libelle" value="{{ old('libelle') }}">
+                            @if(isset($erreur))
+                                <p class="help is-danger">cette catégorie existe déjà</p><br>
+                            @endif
                         </div>
                         @error('libelle')
                         <p class="help is-danger">{{ $message }}</p>
                         @enderror
 
-                    <div class="field">
-                        <div class="control">
-                            <button class="button is-link">Envoyer</button>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-link">Envoyer</button>
 
-                            <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
+                                <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
+                            </div>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>
