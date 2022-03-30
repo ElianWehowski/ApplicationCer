@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategorieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Objet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Objet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ObjetFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ObjetFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_03_093454_create_objet_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_03_093454_create_objet_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +150,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/JetBrains-Discord-Integration-1.8.0/JetBrains-Discord-Integration/lib/DiscordIPC-e18542f.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exAjax" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -204,7 +196,8 @@
       <workItem from="1648133065394" duration="86000" />
       <workItem from="1648471247947" duration="28000" />
       <workItem from="1648471293190" duration="2188000" />
-      <workItem from="1648476100387" duration="228000" />
+      <workItem from="1648476100387" duration="2046000" />
+      <workItem from="1648564513693" duration="235000" />
     </task>
     <servers />
   </component>
