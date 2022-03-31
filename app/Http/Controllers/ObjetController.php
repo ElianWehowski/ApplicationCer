@@ -25,13 +25,22 @@ class ObjetController extends Controller
     {
         if(!isset($idCate)){
             $idCate=null;
+            $toutLesObjets=DB::table('objets')
+                ->join('categories', 'objets.idCategorie', '=', 'categories.id')
+                ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
+                ->orderBy('id','asc')
+                ->get();
+        }
+        else{
+            $toutLesObjets=DB::table('objets')
+                ->join('categories', 'objets.idCategorie', '=', 'categories.id')
+                ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
+                ->where('objets.idCategorie','=',$idCate)
+                ->orderBy('id','asc')
+                ->get();
         }
 
-        $toutLesObjets=DB::table('objets')
-            ->join('categories', 'objets.idCategorie', '=', 'categories.id')
-            ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
-            ->orderBy('id','asc')
-            ->get();
+
 
 
         $categories = DB::table('categories')->get();

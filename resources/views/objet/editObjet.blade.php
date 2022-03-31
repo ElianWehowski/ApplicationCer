@@ -16,7 +16,7 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
         </header>
         <div class="card-content">
             <div class="content">
-                <form class="form-horizontal" method="POST" action="{{ route('objet.update', $objet->id) }}">
+                <form class="form-horizontal" method="POST" id="myForm" action="{{ route('objet.update', $objet->id) }}">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
 
@@ -33,9 +33,9 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                     <div class="field">
                         <label for="prix" class="label">Prix de base</label>
                         <div class="control">
-                            <input class="input" id="prix" type="numeric" name="prix" value="{{ old('duree',$objet->prix) }}" >
+                            <input class="input" id="prix" type="numeric" disabled="disabled" name="prix" value="{{ old('duree',$objet->prix) }}" >
                             @error('prix')
-                            <div class="invalid-feedback">Le nombre d'habitants est obligatoire et doit être inferieure à 32768</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -57,7 +57,7 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         <div class="control">
                             <input class="input" id="dateOuverture" type="datetime-local"  name="dateOuverture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dOuverture)) }}" >
                             @error('dateOuverture')
-                            <div class="invalid-feedback">La superficie est obligatoire et doit faire moins de 2147483645m²</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -66,15 +66,14 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         <div class="control">
                             <input class="input" id="dateFermeture" type="datetime-local"  name="dateFermeture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dFermeture)) }}" >
                             @error('dateFermeture')
-                            <div class="invalid-feedback">La superficie est obligatoire et doit faire moins de 2147483645m²</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                     <div class="field">
                         <div class="control">
-                            <button type="submit" class="button is-link">
-                                Enregistrer
-                            </button>
+                            <button class="button is-link" type="button" onclick="ValidJS()">Envoyer</button>
+
                             <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
                         </div>
                     </div>
@@ -83,5 +82,41 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
             </div>
         </div>
     </div>
+
+<script type="text/javascript">
+
+
+    function verifDate(){
+        var valid = true;
+        var debut = document.getElementById("dateOuverture");
+        var fin = document.getElementById("dateFermeture");
+        var ddebut = debut.value.substr(0,10);
+        var Ddebut = debut.value.substr(11,5);
+        var dateDebut = new Date(ddebut+" "+Ddebut);
+        var dfin = fin.value.substr(0,10);
+        var Dfin = fin.value.substr(11,5);
+        var dateFin = new Date(dfin+" "+Dfin);
+        // alert(dateDebut.getTime() +" fin:"+ dateFin.getTime());
+        if(dateDebut.getTime() < dateFin.getTime())
+        {
+            // window.alert("c'est good");
+        }
+        else{
+            window.alert("les dates ne sont pas ordonnées");
+            valid = false;
+        }
+        return valid;
+    }
+
+    function ValidJS(){
+        var form = document.forms["myForm"];
+        var valid = verifDate();
+        if(valid){
+            form.submit();
+        }
+
+    }
+
+</script>
 
 @endsection

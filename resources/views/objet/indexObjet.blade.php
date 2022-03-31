@@ -50,8 +50,8 @@
                                         <a class="dropdown-item" href="{{ route('categorie.create') }}">Créer une catégorie</a>
                                         <a class="dropdown-item" href="{{ route('objet.flush') }}">Changer les données</a>
                                     @endif
-                                        <a class="dropdown-item" href="{{ route('objet.view') }}">Voir mes objets</a>
-                                        <form method="POST" action="{{ route('logout') }}">
+                                    <a class="dropdown-item" href="{{ route('objet.view') }}">Voir mes objets</a>
+                                    <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a class="dropdown-item" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();"> {{ __('Déconnexion') }} </a>
                                     </form>
@@ -71,14 +71,16 @@
 
         </header>
         <div class="card-content">
+            <label for="cate" class="inline-flex">Résultat(s): {{count($toutLesObjets)}}</label>
             <div class="select">
-                <select onchange="window.location.href = this.value">
+                <select id="cate" onchange="window.location.href = this.value">
                     <option value="{{ route('objet.index') }}">Toutes les catégories</option>
                     @foreach($categories as $categorie)
                         <option value="{{ route('objet.categorie', $categorie->id) }}"
                             {{ $idCate == $categorie->id ? 'selected' : '' }}>{{ ucfirst($categorie->libelle) }}</option>
                     @endforeach
                 </select>
+
             </div>
             <table class="table is-hoverable">
                 <thead>
@@ -99,7 +101,7 @@
                 @foreach($toutLesObjets as $objet)
 
                     @if($objet->idCategorie == $idCate || $idCate==null)
-                        @if ( $objet->dateFermeture > $currentDate )
+                        @if ( $objet->dateFermeture > $currentDate && $objet->dateOuverture < $currentDate )
                             <tr>
                                 <td>{{ $objet->id }}</td>
                                 <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
@@ -133,22 +135,34 @@
 
                 @endforeach
                 @foreach($toutLesObjets as $objet)
-                    @if($objet->idCategorie == $idCate || $idCate==null)
-                        @if ( ($objet->dateFermeture < $currentDate) )
+                    @if ( ($objet->dateOuverture > $currentDate) )
 
-                            <tr>
-                                <td>{{ $objet->id }}</td>
-                                <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
-                                <td>{{ ucfirst($objet->nom)}}</td>
-                                <td>{{ $objet->prix }} </td>
-                                <td>{{ $objet->dateOuverture }} </td>
-                                <td>{{ $objet->dateFermeture }} </td>
+                        <tr>
+                            <td>{{ $objet->id }}</td>
+                            <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
+                            <td>{{ ucfirst($objet->nom)}}</td>
+                            <td>{{ $objet->prix }} </td>
+                            <td>{{ $objet->dateOuverture }} </td>
+                            <td>{{ $objet->dateFermeture }} </td>
 
-                                <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
-                                <td><a class="button is-danger" disabled>Fermé</a></td>
-                            </tr>
+                            <td><a class="button is-danger" disabled>Fermé</a></td>
+                        </tr>
                     @endif
+                    @if ( ($objet->dateFermeture < $currentDate) )
+
+                        <tr>
+                            <td>{{ $objet->id }}</td>
+                            <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
+                            <td>{{ ucfirst($objet->nom)}}</td>
+                            <td>{{ $objet->prix }} </td>
+                            <td>{{ $objet->dateOuverture }} </td>
+                            <td>{{ $objet->dateFermeture }} </td>
+
+                            <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
+                            <td><a class="button is-danger" disabled>Clos</a></td>
+                        </tr>
                     @endif
+
 
                 @endforeach
                 </tbody>
