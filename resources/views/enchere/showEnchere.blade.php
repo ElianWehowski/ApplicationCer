@@ -13,7 +13,6 @@
     <?php
     $taille = sizeof($encheres)-1;
     ?>
-   <img src="../images/logoCer.png" width="150px"height="150px"><br/><br/>
 
     <div class="card">
         <header class="card-header">

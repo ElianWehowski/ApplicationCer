@@ -10,14 +10,11 @@
             {{ session('danger') }}
         </div>
     @endif
-    <a href="{{route('objet.index')}}"><img src="../images/logoCer.png" width="150px"height="150px" ><br/><br/></a>
 
     <div class="card">
-        <header class="card-header">
-            <p class="card-header-title"><strong>Nom de l'objet</strong> : {{ $objet->nom }}</p>
-        </header>
         <div class="card-content">
             <div class="content">
+                <p>Nom de l'objet : {{ $objet->nom }} </p>
                 <p>Prix de l'objet : {{ $objet->prix }} €</p>
                 <p>Catégorie de l'objet : {{ ucfirst($objetBDD[0]->libelle) }}</p>
                 <p>Date ouverture : {{ $objet->dateOuverture }} .  <strong>Date fermeture : {{ $objet->dateFermeture }}</strong></p>

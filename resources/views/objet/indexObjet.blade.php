@@ -18,9 +18,12 @@
             {{ session('info') }}
         </div>
     @endif
+<<<<<<< Updated upstream
 
 
     <div class="card" style="width:100%">
+=======
+>>>>>>> Stashed changes
         <div class="card-content">
             <label for="cate" class="inline-flex">Résultat(s): {{count($toutLesObjets)}}</label>
             <div class="select">

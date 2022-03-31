@@ -18,58 +18,11 @@
             {{ session('info') }}
         </div>
     @endif
-    <?php
-    $url = URL::current();
-    if(substr($url,16)==""){
-        echo '<img src="images/logoCer.png" width="150px"height="150px"><br/><br/>';
-    }else{
-        echo '<a href="'.route('objet.index').'"><img src="../../images/logoCer.png" width="150px"height="150px"></a><br/><br/>';
-    }
-    ?>
 
 
     <div class="card" style="width:100%">
 
-        <header class="card-header">
-            <p class="card-header-title">Liste des objets</p>
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-8 py-6 sm:block">
-                    @auth
-                        <div class="button" disabled=""> Utilisateur : {{ $userid =Auth::user()->name}} </div>
-                        <div class="dropdown is-hoverable">
-                            <div class="dropdown-trigger">
-                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                    <span><a>Gestion</a></span>
-                                </button>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
 
-                                <div class="dropdown-content">
-                                    @if(Auth::user()->type == "admin")
-                                        <a class="dropdown-item" href="{{ route('enchere.create') }}">Créer une enchère</a>
-                                        <a class="dropdown-item" href="{{ route('categorie.create') }}">Créer une catégorie</a>
-                                        <a class="dropdown-item" href="{{ route('objet.flush') }}">Changer les données</a>
-                                    @endif
-                                        <a class="dropdown-item" href="{{ route('objet.view') }}">Voir mes objets</a>
-                                        <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <a class="dropdown-item" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();"> {{ __('Déconnexion') }} </a>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    @else
-                        <a class="button is-info" href="{{ route('login') }}" >Se connecter</a>
-
-                        @if (Route::has('register'))
-                            <a  class="button is-info" href="{{ route('register') }}">S'inscrire</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-        </header>
         <div class="card-content">
 
             <table class="table is-hoverable">
