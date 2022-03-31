@@ -44,6 +44,7 @@
                 </thead>
                 <tbody>
                 <?php
+
                 $currentDate = date('Y-m-d H:i:s', time());
                 $currentDatePlus10 = date('Y-m-d H:i:s', strtotime("+10 minutes"));
                 ?>
@@ -56,9 +57,8 @@
                                 <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                                 <td>{{ ucfirst($objet->nom)}}</td>
                                 <td>{{ $objet->prix }} </td>
-                                <td>{{ $objet->dateOuverture }} </td>
-                                <td>{{ $objet->dateFermeture }} </td>
-
+                                <td>{{ date('d-m-Y H:m',strtotime($objet->dateOuverture))}} </td>
+                                <td>{{ date('d-m-Y H:m',strtotime($objet->dateFermeture))}} </td>
 
                                 <td><a class="button is-primary" id="enchérir-{{$objet->id}}" href="{{ route('objet.show', $objet->id) }}">Ouvert</a></td>
 
@@ -91,8 +91,8 @@
                             <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                             <td>{{ ucfirst($objet->nom)}}</td>
                             <td>{{ $objet->prix }} </td>
-                            <td>{{ $objet->dateOuverture }} </td>
-                            <td>{{ $objet->dateFermeture }} </td>
+                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateOuverture))}} </td>
+                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateFermeture))}} </td>
 
                             <td><a class="button is-danger" disabled>Fermé</a></td>
                         </tr>
@@ -104,8 +104,8 @@
                             <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                             <td>{{ ucfirst($objet->nom)}}</td>
                             <td>{{ $objet->prix }} </td>
-                            <td>{{ $objet->dateOuverture }} </td>
-                            <td>{{ $objet->dateFermeture }} </td>
+                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateOuverture))}} </td>
+                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateFermeture))}} </td>
 
                             <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
                             <td><a class="button is-danger" disabled>Clos</a></td>
