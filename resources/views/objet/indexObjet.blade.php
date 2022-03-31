@@ -20,7 +20,7 @@
     @endif
     <div class="card" style="width:100%">
         <div class="card-content">
-            <label for="cate" class="inline-flex">Résultat(s): {{count($toutLesObjets)}}</label>
+
             <div class="select">
                 <select id="cate" onchange="window.location.href = this.value">
                     <option value="{{ route('objet.index') }}">Toutes les catégories</option>
@@ -31,7 +31,8 @@
                 </select>
 
             </div>
-            <table class="table is-hoverable">
+            <label for="tablecateauActif" class="inline-flex">Résultat(s): {{count($toutLesObjets)}}</label>
+            <table name="tablecateauActif" class="table is-hoverable">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -57,8 +58,8 @@
                                 <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                                 <td>{{ ucfirst($objet->nom)}}</td>
                                 <td>{{ $objet->prix }} </td>
-                                <td>{{ date('d-m-Y H:m',strtotime($objet->dateOuverture))}} </td>
-                                <td>{{ date('d-m-Y H:m',strtotime($objet->dateFermeture))}} </td>
+                                <td>{{ substr($objet->dateOuverture,0,16)}} </td>
+                                <td>{{ substr($objet->dateFermeture,0,16)}} </td>
 
                                 <td><a class="button is-primary" id="enchérir-{{$objet->id}}" href="{{ route('objet.show', $objet->id) }}">Ouvert</a></td>
 
@@ -91,8 +92,8 @@
                             <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                             <td>{{ ucfirst($objet->nom)}}</td>
                             <td>{{ $objet->prix }} </td>
-                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateOuverture))}} </td>
-                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateFermeture))}} </td>
+                            <td>{{ substr($objet->dateOuverture,0,16)}} </td>
+                            <td>{{ substr($objet->dateFermeture,0,16)}} </td>
 
                             <td><a class="button is-danger" disabled>Fermé</a></td>
                         </tr>
@@ -104,8 +105,8 @@
                             <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                             <td>{{ ucfirst($objet->nom)}}</td>
                             <td>{{ $objet->prix }} </td>
-                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateOuverture))}} </td>
-                            <td>{{ date('d-m-Y H:m',strtotime($objet->dateFermeture))}} </td>
+                            <td>{{ substr($objet->dateOuverture,0,16)}} </td>
+                            <td>{{ substr($objet->dateFermeture,0,16)}} </td>
 
                             <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
                             <td><a class="button is-danger" disabled>Clos</a></td>
