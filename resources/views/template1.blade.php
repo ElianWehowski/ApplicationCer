@@ -28,7 +28,9 @@
                 @elseif(Request::route()->getName()=="objet.categorie")
                     <p class="card-header-title">Liste des objets</p>
                 @elseif(Request::route()->getName()=="objet.view")
-                    <p class="card-header-title">Voir mes objets</p>
+                    <p class="card-header-title">Liste des objets</p>
+                @elseif(URL::current()!="")
+                    <p class="card-header-title">Liste des objets</p>
                 @elseif(Request::route()->getName()=="objet.edit")
                     <p class="card-header-title">Modifier l'objet</p>
                 @elseif(Request::route()->getName()=="objet.show")
