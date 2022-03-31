@@ -8,12 +8,9 @@ $dFermeture = date_create($objet->dateFermeture);
 $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
 //var_dump($objet);
 ?>
-<a href="{{route('objet.index')}}"><img src="../../images/logoCer.png" width="150px" height="150px" ><br/><br/></a>
 
     <div class="card">
-        <header class="card-header">
-            <p class="card-header-title">Modification d'une enchère</p>
-        </header>
+
         <div class="card-content">
             <div class="content">
                 <form class="form-horizontal" method="POST" id="myForm" action="{{ route('objet.update', $objet->id) }}">
