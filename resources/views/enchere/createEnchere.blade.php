@@ -64,6 +64,7 @@
 
                     <input type="hidden" name="idProprietaire" value="{{Auth::user()->id}}"></input>
                     <div class="field">
+
                         <div class="control">
                             <button class="button is-link" type="button" onclick="ValidJS()">Envoyer</button>
 

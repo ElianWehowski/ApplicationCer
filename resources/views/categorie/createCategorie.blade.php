@@ -20,6 +20,7 @@
 
                         <div class="field">
                             <div class="control">
+                                <br>
                                 <button class="button is-link">Envoyer</button>
 
                                 <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
