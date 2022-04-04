@@ -41,8 +41,6 @@ class ObjetController extends Controller
         }
 
 
-
-
         $categories = DB::table('categories')->get();
         return view('objet/indexObjet',compact('toutLesObjets', 'categories', 'idCate'));
     }
@@ -176,6 +174,7 @@ class ObjetController extends Controller
                 $enchere->prixEnchere=$prixObj;
                 $enchere->idObjet=$idObj;
                 $enchere->idEncherisseur= Auth::user()->id;
+                $objet->idAcheteur = Auth::user()->id;
                 $enchere->dateEnchere= date('Y-m-d h:i:s', time());
                 $enchere->save($Erequest->all());
 
