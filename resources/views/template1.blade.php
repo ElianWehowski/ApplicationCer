@@ -60,7 +60,9 @@
                                         @if(Request::route()->getName()=="objet.view")
                                             <a class="dropdown-item" href="{{ route('objet.index') }}">Retour aux encheres</a>
                                         @endif
-                                        <a class="dropdown-item" href="{{ route('objet.view') }}">Voir mes objets</a>
+                                        @if(Request::route()->getName()!="objet.view")
+                                                <a class="dropdown-item" href="{{ route('objet.view') }}">Voir mes objets</a>
+                                        @endif
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <a class="dropdown-item" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();"> {{ __('Déconnexion') }} </a>
@@ -71,7 +73,7 @@
                         @else
                             <a class="button is-info" href="{{ route('login') }}">Se connecter</a>
                             @if (Route::has('register'))
-                            <a class="button is-info" href="{{ route('register') }}">S'inscrire</a>
+                                <a class="button is-info" href="{{ route('register') }}">S'inscrire</a>
                             @endif
                         @endauth
                     </div>

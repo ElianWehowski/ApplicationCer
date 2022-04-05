@@ -13,6 +13,7 @@
 
 @endsection
 @section('contenu')
+    <?php // header("Refresh: 30;url='http://cer/'");?>
     @if(session()->has('info'))
         <div class="notification is-success">
             {{ session('info') }}
