@@ -105,13 +105,13 @@
            var valid = verifDate();
            var nom = document.getElementById("nom");
            var prix = document.getElementById("prix");
-           if(nom.value == ""){
+           if(nom.value == "" || nom.length > 190){
                valid = false;
-               alert("Entrez un nom.");
+               alert("Entrez un nom avec moins de 190 caractères.");
            }
-           if(prix.value == ""){
+           if(prix.value == "" || prix.value > 500000){
                valid = false;
-               alert("Entrez un prix.")
+               alert("Entrez un prix entre 0 et 500 000€.")
            }
            if(valid){
                form.submit();
