@@ -16,7 +16,7 @@
             <div class="content">
                 <p>
                     Nom de l'objet : <strong>{{ $objet->nom }}</strong><br/>
-                    Prix final : <strong>{{ $objet->prix }} €</strong><br/>
+                    <span id="prix">Prix final : <strong>{{ $objet->prix }} €</strong></span><br/>
                     Catégorie de l'objet : <strong>{{ ucfirst($objetBDD[0]->libelle) }}</strong>
                 </p>
                 <p>
@@ -76,6 +76,7 @@
                 //alert(xhr.readyState);
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var prix = xhr.response;
+                    // alert(prix);
                     var slotprix = document.getElementById("prix");
                     slotprix.innerHTML = prix;
                 }
