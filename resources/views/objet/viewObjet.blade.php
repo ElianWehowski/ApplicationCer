@@ -32,8 +32,8 @@
                     <th>Catégorie</th>
                     <th>Nom de l'objet</th>
                     <th>Prix</th>
-                    <th>Date Ouverture</th>
-                    <th>Date Fermeture</th>
+                    <th>Date d'ouverture</th>
+                    <th>Date de fermeture</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,8 +50,8 @@
                                 <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                                 <td>{{ ucfirst($objet->nom)}}</td>
                                 <td>{{ $objet->prix }} </td>
-                                <td>{{ $objet->dateOuverture }} </td>
-                                <td>{{ $objet->dateFermeture }} </td>
+                                <td>{{ substr($objet->dateOuverture,0,16)}} </td>
+                                <td>{{ substr($objet->dateFermeture,0,16)}} </td>
 
 
                                 <td><a class="button is-primary" id="enchérir-{{$objet->id}}" href="{{ route('objet.show', $objet->id) }}">Ouvert</a></td>
@@ -69,11 +69,11 @@
                                                     <button class="button is-danger" type="submit" id="enchérir-{{$objet->id}}">Supprimer</button>
                                                 </form>
                                             </td>
+                                        @endif
+                                    @endauth
+                                @endif
                             </tr>
                         @endif
-                    @endauth
-                    @endif
-                    @endif
                     @endif
 
                 @endforeach
@@ -86,15 +86,14 @@
                                 <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                                 <td>{{ ucfirst($objet->nom)}}</td>
                                 <td>{{ $objet->prix }} </td>
-                                <td>{{ $objet->dateOuverture }} </td>
-                                <td>{{ $objet->dateFermeture }} </td>
+                                <td>{{ substr($objet->dateOuverture,0,16)}} </td>
+                                <td>{{ substr($objet->dateFermeture,0,16)}} </td>
 
                                 <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
                                 <td><a class="button is-danger" disabled>Fermé</a></td>
                             </tr>
+                        @endif
                     @endif
-                    @endif
-
                 @endforeach
                 </tbody>
             </table>

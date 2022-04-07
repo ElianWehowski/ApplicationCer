@@ -16,11 +16,6 @@ use \App\Http\Controllers\EnchereController;
 |
 */
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::put('/objet/{objet}/bid', [ObjetController::class, 'bid'])->name('objet.bid');
 Route::put('/enchere/{objet}/sold', [EnchereController::class, 'sold'])->name('enchere.sold');
 

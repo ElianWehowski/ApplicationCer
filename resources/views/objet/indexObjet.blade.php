@@ -32,7 +32,7 @@
                 </select>
 
             </div>
-            <label for="tablecateauActif" class="inline-flex">Résultat(s): {{count($toutLesObjets)}}</label>
+            <label for="tablecateauActif" class="inline-flex"><?php if(count($toutLesObjets)>1){ echo "Résultats : ".count($toutLesObjets);}elseif(count($toutLesObjets)==0){echo "Aucun résultat";}else{echo "Résultat";} ?></label>
             <table name="tablecateauActif" class="table is-hoverable">
                 <thead>
                 <tr>
@@ -40,8 +40,8 @@
                     <th>Catégorie</th>
                     <th>Nom de l'objet</th>
                     <th>Prix</th>
-                    <th>Date Ouverture</th>
-                    <th>Date Fermeture</th>
+                    <th>Date d'ouverture</th>
+                    <th>Date de fermeture</th>
                 </tr>
                 </thead>
                 <tbody>

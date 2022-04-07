@@ -19,12 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
+    <list default="true" id="261f1ec2-9862-48ce-9e0c-5b1d8175fdac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navbar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/viewObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/viewObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/template1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template1.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

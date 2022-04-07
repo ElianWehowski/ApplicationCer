@@ -33,6 +33,8 @@
                     <p class="card-header-title">Modifier l'objet</p>
                 @elseif(Request::route()->getName()=="objet.show")
                     <p class="card-header-title">Enchère pour l'objet</p>
+                @elseif(Request::route()->getName()=="enchere.show")
+                    <p class="card-header-title">Résumé de l'enchère</p>
                 @elseif(Request::route()->getName()=="enchere.create")
                     <p class="card-header-title">Création d'une enchère</p>
                 @elseif(Request::route()->getName()=="categorie.create")
@@ -58,10 +60,10 @@
                                             <a class="dropdown-item" href="{{ route('objet.flush') }}">Changer les données</a>
                                         @endif
                                         @if(Request::route()->getName()=="objet.view")
-                                            <a class="dropdown-item" href="{{ route('objet.index') }}">Retour aux encheres</a>
+                                            <a class="dropdown-item" href="{{ route('objet.index') }}">Retour aux enchères</a>
                                         @endif
                                         @if(Request::route()->getName()!="objet.view")
-                                                <a class="dropdown-item" href="{{ route('objet.view') }}">Voir mes objets</a>
+                                            <a class="dropdown-item" href="{{ route('objet.view') }}">Voir mes objets</a>
                                         @endif
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
@@ -79,9 +81,9 @@
                     </div>
                 @endif
             </header>
-
             @yield('contenu')
         </div>
+    </div>
 </main>
 </body>
 </html>

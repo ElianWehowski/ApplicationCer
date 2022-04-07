@@ -94,7 +94,7 @@
                // window.alert("c'est good");
            }
            else{
-               window.alert("les dates ne sont pas ordonnées");
+               window.alert("Les dates ne sont pas ordonnées");
                valid = false;
            }
            return valid;
