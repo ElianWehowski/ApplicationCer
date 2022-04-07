@@ -21,13 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/template1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template1.blade.php" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +172,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exAjax" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -223,6 +220,8 @@
       <workItem from="1648471293190" duration="2188000" />
       <workItem from="1648476100387" duration="2046000" />
       <workItem from="1648564513693" duration="235000" />
+      <workItem from="1649150512379" duration="137000" />
+      <workItem from="1649312003888" duration="355000" />
     </task>
     <servers />
   </component>
@@ -245,6 +244,12 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1649150548046">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1649150548046" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -50,7 +50,7 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         @enderror
                     </div>
                     <div class="field">
-                        <label for="dateOuverture" class="label">ouverture</label>
+                        <label for="dateOuverture" class="label">Ouverture</label>
                         <div class="control">
                             <input class="input" id="dateOuverture" type="datetime-local"  name="dateOuverture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dOuverture)) }}" >
                             @error('dateOuverture')
@@ -59,7 +59,7 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         </div>
                     </div>
                     <div class="field">
-                        <label for="dateFermeture" class="label">fermeture</label>
+                        <label for="dateFermeture" class="label">Fermeture</label>
                         <div class="control">
                             <input class="input" id="dateFermeture" type="datetime-local"  name="dateFermeture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dFermeture)) }}" >
                             @error('dateFermeture')

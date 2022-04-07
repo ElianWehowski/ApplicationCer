@@ -18,8 +18,8 @@
                 <p>Prix de l'objet : {{ $objet->prix }} €</p>
                 <p>Catégorie de l'objet : {{ ucfirst($objetBDD[0]->libelle) }}</p>
                 <p>Date ouverture : {{ $objet->dateOuverture }} .  <strong>Date fermeture : {{ $objet->dateFermeture }}</strong></p>
-                <p>Nombre d'enchère : {{ sizeof($encheres)  }} </p>
-                Derniere enchere : <?php if (isset($encheres[0])){echo $encheres[0]->dateEnchere;}else{echo"Aucune enchere";}   ?></p>
+                <p>Nombre d'enchères : {{ sizeof($encheres)  }} </p>
+                Dernière enchère : <?php if (isset($encheres[0])){echo $encheres[0]->dateEnchere;}else{echo"Aucune enchere";}   ?></p>
             </div>
             @if (Route::has('login'))
                 <div class="content">

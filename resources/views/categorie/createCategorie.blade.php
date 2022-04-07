@@ -11,7 +11,7 @@
                         <div class="control">
                             <input class="input" type="text" name="libelle" value="{{ old('libelle') }}">
                             @if(isset($erreur))
-                                <p class="help is-danger">cette catégorie existe déjà</p><br>
+                                <p class="help is-danger">Cette catégorie existe déjà</p><br>
                             @endif
                         </div>
                         @error('libelle')
