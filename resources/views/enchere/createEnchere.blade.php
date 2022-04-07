@@ -10,7 +10,7 @@
                     <div class="field">
                         <label class="label">Nom de l'objet</label>
                         <div class="control">
-                            <input class="input" type="numeric" name="nom"  value="{{ old('nom') }}" required>
+                            <input class="input" type="numeric" id="nom" name="nom"  value="{{ old('nom') }}" required>
                         </div>
                         @error('nom')
                         <p class="help is-danger">{{ $message }}</p>
@@ -33,7 +33,7 @@
                     <div class="field">
                         <label class="label">Prix de départ</label>
                         <div class="control">
-                            <input class="input" type="number"  name="prix"  min="1" max="500000" value="{{ old('prix') }}" required>
+                            <input class="input" type="number" id="prix"  name="prix"  min="1" max="500000" value="{{ old('prix') }}" required>
                         </div>
                         @error('prix')
                         <p class="help is-danger">{{ $message }}</p>
@@ -94,7 +94,7 @@
                // window.alert("c'est good");
            }
            else{
-               window.alert("Les dates ne sont pas ordonnées");
+               window.alert("Les dates ne sont pas ordonnées.");
                valid = false;
            }
            return valid;
@@ -103,6 +103,16 @@
        function ValidJS(){
            var form = document.forms["myForm"];
            var valid = verifDate();
+           var nom = document.getElementById("nom");
+           var prix = document.getElementById("prix");
+           if(nom.value == ""){
+               valid = false;
+               alert("Entrez un nom.");
+           }
+           if(prix.value == ""){
+               valid = false;
+               alert("Entrez un prix.")
+           }
            if(valid){
                form.submit();
            }
