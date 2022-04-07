@@ -21,20 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="261f1ec2-9862-48ce-9e0c-5b1d8175fdac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategorieController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/EnchereRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/EnchereRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ObjetRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ObjetRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ajax/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/ajax/ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/objet/viewObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/viewObjet.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/template1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template1.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +160,7 @@
   </component>
   <component name="ProjectId" id="25rruFJZmV1iS6Q0OI9UUPIeMEA" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -203,7 +197,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="150665e5-4660-472d-a147-caaa90c2c354" name="Changes" comment="" />
+      <changelist id="261f1ec2-9862-48ce-9e0c-5b1d8175fdac" name="Changes" comment="" />
       <created>1646296267726</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -232,6 +226,7 @@
       <workItem from="1648564513693" duration="235000" />
       <workItem from="1649150512379" duration="137000" />
       <workItem from="1649312003888" duration="355000" />
+      <workItem from="1649337604345" duration="2313000" />
     </task>
     <servers />
   </component>

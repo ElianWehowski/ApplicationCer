@@ -49,7 +49,7 @@ class CategorieController extends Controller
         if($valid){
             $categorie->libelle=$request->libelle;
             $categorie->save();
-            return redirect()->route('objet.index')->with('info','La catégorie ' . $categorie->libelle . ' a été créé');
+            return redirect()->route('objet.index')->with('info','La catégorie "' . $categorie->libelle . '" est créé');
         }
         else{
             $categories=Categorie::all();

@@ -99,8 +99,7 @@ class ObjetController extends Controller
             ->select('objets.*', 'categories.id as idCategorie', 'categories.libelle')
             ->where('objets.id','=',$objet->id)
             ->get();
-
-
+        
         $encheres = DB::table('encheres')
             ->select('*')
             ->where('encheres.idObjet','=',$objet->id)
@@ -140,7 +139,7 @@ class ObjetController extends Controller
     {
         $objet->idCategorie = $_POST['idCategorie'];
         $objet->update($request->all());
-        return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été modifié');
+        return redirect()->route('objet.index')->with('info', 'L\'enchère a bien été modifiée');
 
     }
 
@@ -205,7 +204,7 @@ class ObjetController extends Controller
     public function destroy(Objet $objet)
     {
         $objet->delete();
-        return redirect()->route('objet.index')->with('info', 'L\'enchere a bien été supprimé');
+        return redirect()->route('objet.index')->with('info', 'L\'enchère est supprimé');
     }
 
 

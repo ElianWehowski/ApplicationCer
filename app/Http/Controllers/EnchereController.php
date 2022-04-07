@@ -51,7 +51,7 @@ class EnchereController extends Controller
         $enchere->save();
 //        $objet = Objet::create($request->all());
 //        $objet->categorie()->attach($request->categorie);
-        return redirect()->route('objet.index')->with('info','L\'enchère ' . $enchere->nom . ' a été créé');
+        return redirect()->route('objet.index')->with('info','L\'enchère "' . $enchere->nom . '" est créé');
     }
     /**
      * Display the specified resource.

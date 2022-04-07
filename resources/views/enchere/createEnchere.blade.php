@@ -2,7 +2,6 @@
 @section('contenu')
 
     <div class="card">
-
         <div class="card-content">
             <div class="content">
                 <form id="myForm" action="{{ route('enchere.store') }}" method="POST">
@@ -15,7 +14,6 @@
                         @error('nom')
                         <p class="help is-danger">{{ $message }}</p>
                         @enderror
-
                     </div>
                     <label class="label" for="categorie">Catégorie</label>
                     <div class="select">
@@ -39,7 +37,6 @@
                         <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </div>
-
                     <div class="field">
                         <label class="label">Date d'ouverture de l'enchère</label>
                         <div class="control">
@@ -49,7 +46,6 @@
                         <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </div>
-
                     <div class="field">
                         <label class="label">Date de fermeture de l'enchère</label>
                         <div class="control">
@@ -59,15 +55,10 @@
                         <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </div>
-
-
-
                     <input type="hidden" name="idProprietaire" value="{{Auth::user()->id}}"></input>
                     <div class="field">
-
                         <div class="control">
                             <button class="button is-link" type="button" onclick="ValidJS()">Créer l'enchère</button>
-
                             <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
                         </div>
                     </div>
@@ -76,8 +67,6 @@
         </div>
     </div>
    <script type="text/javascript">
-
-
        function verifDate(){
            var valid = true;
            var debut = document.getElementById("dateOuverture");
@@ -116,8 +105,6 @@
            if(valid){
                form.submit();
            }
-
        }
-
    </script>
 @endsection

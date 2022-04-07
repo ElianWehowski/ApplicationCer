@@ -16,7 +16,7 @@
             <div class="content">
                 <p>
                     Nom de l'objet : <strong>{{ $objet->nom }}</strong><br/>
-                    <span id="prix">Prix final : <strong>{{ $objet->prix }} €</strong></span><br/>
+                    <span id="prix">Prix de l'objet : <strong>{{ $objet->prix }} €</strong></span><br/>
                     Catégorie de l'objet : <strong>{{ ucfirst($objetBDD[0]->libelle) }}</strong>
                 </p>
                 <p>
@@ -38,7 +38,7 @@
                         <form action="{{ route('objet.bid', $objet->id) }}" method="post">
                             @method('PUT')
                             @csrf
-                            <input class="input" id="inputprix" type="number" name="prix" value="{{ $objet->prix }}" min="{{ $objet->prix }}" max="500000"/>
+                            <input class="input" id="inputprix" type="number" name="prix" value="{{ $objet->prix+1 }}" min="{{ $objet->prix }}" max="500000"/>
                             <br><br>
                             <button class="button is-info" type="submit" >Enchérir</button>
                         </form>
