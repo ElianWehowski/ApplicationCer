@@ -22,7 +22,7 @@ try {
     $message = $message . $e->getMessage();
 }
 foreach($tab_E as $tab){
-    $donnees = "Prix de l'objet : ".substr($tab['prix'],0,3) . " €";
+    $donnees = "Prix de l'objet : ".substr($tab['prix'],0,-3) . " €";
 }
 if($donnees==""){
     $donnees=$requete;
