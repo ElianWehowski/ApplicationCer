@@ -12,7 +12,7 @@
                 <div class="field">
                     <label class="label">Nom de l'objet</label>
                     <div class="control">
-                        <input class="input" type="numeric" name="nom" value="{{ old('nom') }}">
+                        <input class="input" type="text" name="nom" value="{{ old('nom') }}">
                     </div>
                     @error('nom')
                     <p class="help is-danger">{{ $message }}</p>
@@ -35,7 +35,7 @@
                 <div class="field">
                     <label class="label">Prix de départ</label>
                     <div class="control">
-                        <input class="input" type="numeric" name="prix" value="{{ old('prix') }}">
+                        <input class="input" type="number" name="prix" value="{{ old('prix') }}" min="{{ 1 }}" max="500000"/>
                     </div>
                     @error('prix')
                     <p class="help is-danger">{{ $message }}</p>

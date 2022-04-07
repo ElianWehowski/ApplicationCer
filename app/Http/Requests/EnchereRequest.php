@@ -24,7 +24,14 @@ class EnchereRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'prix'=>'bail','numeric',
+            'proprietaire'=>'numeric',
+            'acheteur'=>'numeric',
+            'nom'=>'String',
+            'categorie'=>'numeric',
+            'dateOuverture'=>'date',
+            'dateFermeture'=>'date',
+            'vendu'=>'min:0|max:1',
         ];
     }
 }

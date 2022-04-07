@@ -7,7 +7,7 @@
                 <form action="{{ route('categorie.store') }}" method="POST">
                     @csrf
                     <div class="field">
-                        <label class="label">Libelle de la categorie</label>
+                        <label class="label">Libellé de la categorie</label>
                         <div class="control">
                             <input class="input" type="text" name="libelle" value="{{ old('libelle') }}">
                             @if(isset($erreur))
@@ -21,7 +21,7 @@
                         <div class="field">
                             <div class="control">
                                 <br>
-                                <button class="button is-link">Envoyer</button>
+                                <button class="button is-link">Créer la catégorie</button>
 
                                 <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
                             </div>

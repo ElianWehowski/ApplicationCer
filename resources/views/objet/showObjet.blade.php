@@ -14,12 +14,23 @@
     <div class="card">
         <div class="card-content">
             <div class="content">
-                <p>Nom de l'objet : {{ $objet->nom }} </p>
-                <p id="prix">Prix de l'objet : {{ $objet->prix }} €</p>
-                <p>Catégorie de l'objet : {{ ucfirst($objetBDD[0]->libelle) }}</p>
-                <p>Date ouverture : {{ substr($objet->dateOuverture,0,16)}} .  <strong>Date fermeture : {{ substr($objet->dateFermeture,0,16) }}</strong></p>
-                <p>Nombre d'enchère : {{ sizeof($encheres)  }} </p>
-                Derniere enchere : <?php if (isset($encheres[0])){echo substr($encheres[0]->dateEnchere,0,16);}else{echo"Aucune enchère";}   ?></p>
+                <p>
+                    Nom de l'objet : <strong>{{ $objet->nom }}</strong><br/>
+                    Prix final : <strong>{{ $objet->prix }} €</strong><br/>
+                    Catégorie de l'objet : <strong>{{ ucfirst($objetBDD[0]->libelle) }}</strong>
+                </p>
+                <p>
+                    Date d'ouverture : <strong>{{ substr($objet->dateOuverture,0,16) }}</strong><br/>
+                    Date de fermeture : <strong>{{ substr($objet->dateFermeture,0,16) }}</strong>
+                </p>
+                <?php
+                $nbEncheres = sizeof($encheres);
+                if ($nbEncheres>=1){
+                    echo " <p>Nombre d'enchère : <strong>$nbEncheres</strong><br/>
+                    Dernière enchère : <strong>".substr($encheres[0]->dateEnchere,0,16)."</p>";
+                }else{
+                    echo " <p><strong>Aucune enchère, prix de départ $objet->prix</strong></p>";
+                }?>
             </div>
             @if (Route::has('login'))
                 <div class="content">
@@ -73,7 +84,7 @@
 
         refreshData(); // This will run on page load
         setInterval(function(){
-            refreshData() // this will run after every 5 seconds
+            refreshData() // this will run after every second
         }, 1000);
 
     </script>

@@ -21,14 +21,20 @@
   <component name="ChangeListManager">
     <list default="true" id="261f1ec2-9862-48ce-9e0c-5b1d8175fdac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnchereController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ObjetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/EnchereRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/EnchereRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ObjetRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ObjetRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorie/createCategorie.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/createEnchere.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enchere/showEnchere.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navbar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/createObjet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/editObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/indexObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/showObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/objet/viewObjet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/objet/viewObjet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/template1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,12 +254,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1649150548046">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1649150548046" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

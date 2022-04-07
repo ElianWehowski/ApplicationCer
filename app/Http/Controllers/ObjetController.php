@@ -82,9 +82,7 @@ class ObjetController extends Controller
         $objet->vendu=0;
 
         $objet->save();
-//        $objet = Objet::create($request->all());
-//        $objet->categorie()->attach($request->categorie);
-        return redirect()->route('objet.index')->with('info','L\'enchère ' . $objet->nom . ' a été créé');
+        return redirect()->route('objet.index')->with('info','L\'enchère \"' . $objet->nom . '\" a été créé');
     }
 
     /**

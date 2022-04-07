@@ -24,7 +24,7 @@ class ObjetRequest extends FormRequest
     public function rules()
     {
         return [
-            'prix'=>'',
+            'prix'=>'numeric',
             'proprietaire'=>'numeric',
             'acheteur'=>'numeric',
             'nom'=>'String',

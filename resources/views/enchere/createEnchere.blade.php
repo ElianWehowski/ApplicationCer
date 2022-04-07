@@ -10,7 +10,7 @@
                     <div class="field">
                         <label class="label">Nom de l'objet</label>
                         <div class="control">
-                            <input class="input" type="numeric" name="nom" required="required" value="{{ old('nom') }}">
+                            <input class="input" type="numeric" name="nom"  value="{{ old('nom') }}" required>
                         </div>
                         @error('nom')
                         <p class="help is-danger">{{ $message }}</p>
@@ -22,7 +22,7 @@
                         <div class="control">
                             <select id="categorie" name="categorie">
                                 @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('categorie') ?: []) ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                                    <option value="{{ $categorie->id }}" {{ in_array($categorie->id, old('categorie') ?: []) ? 'selected' : '' }}>{{ ucfirst($categorie->libelle) }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="field">
                         <label class="label">Prix de départ</label>
                         <div class="control">
-                            <input class="input" type="numeric" required="required" name="prix" value="{{ old('prix') }}">
+                            <input class="input" type="number"  name="prix"  min="1" max="500000" value="{{ old('prix') }}" required>
                         </div>
                         @error('prix')
                         <p class="help is-danger">{{ $message }}</p>
@@ -43,7 +43,7 @@
                     <div class="field">
                         <label class="label">Date d'ouverture de l'enchère</label>
                         <div class="control">
-                            <input class="input" type="datetime-local" required="required" id="dateOuverture" name="ouverture" value="{{ old('ouverture') }}">
+                            <input class="input" type="datetime-local"  id="dateOuverture" name="ouverture" value="{{ old('ouverture') }}" required>
                         </div>
                         @error('ouverture')
                         <p class="help is-danger">{{ $message }}</p>
@@ -53,7 +53,7 @@
                     <div class="field">
                         <label class="label">Date de fermeture de l'enchère</label>
                         <div class="control">
-                            <input class="input" type="datetime-local" required="required" id="dateFermeture" name="fermeture" value="{{ old('fermeture') }}">
+                            <input class="input" type="datetime-local"  id="dateFermeture" name="fermeture" value="{{ old('fermeture') }}" required>
                         </div>
                         @error('fermeture')
                         <p class="help is-danger">{{ $message }}</p>
@@ -66,7 +66,7 @@
                     <div class="field">
 
                         <div class="control">
-                            <button class="button is-link" type="button" onclick="ValidJS()">Envoyer</button>
+                            <button class="button is-link" type="button" onclick="ValidJS()">Créer l'enchère</button>
 
                             <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
                         </div>

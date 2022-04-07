@@ -26,7 +26,6 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
                     <div class="field">
                         <label for="prix" class="label">Prix de base</label>
                         <div class="control">
@@ -37,11 +36,11 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Catégorie</label>
+                        <label class="label" for="IdCategorie">Catégorie</label>
                         <div class="control">
-                            <select class="select" name="idCategorie">
+                            <select class="select" id ="IdCategorie" name="IdCategorie">
                                 @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->id }}" {{ $categorie->id==$objet->idCategorie ? 'selected' : '' }}>{{ $categorie->libelle }}</option>
+                                    <option value="{{ $categorie->id }}" {{ $categorie->id==$objet->idCategorie ? 'selected' : '' }}>{{ ucfirst($categorie->libelle) }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -50,7 +49,7 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         @enderror
                     </div>
                     <div class="field">
-                        <label for="dateOuverture" class="label">Ouverture</label>
+                        <label for="dateOuverture" class="label">Date d'ouverture</label>
                         <div class="control">
                             <input class="input" id="dateOuverture" type="datetime-local"  name="dateOuverture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dOuverture)) }}" >
                             @error('dateOuverture')
@@ -59,7 +58,7 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         </div>
                     </div>
                     <div class="field">
-                        <label for="dateFermeture" class="label">Fermeture</label>
+                        <label for="dateFermeture" class="label">Date de fermeture</label>
                         <div class="control">
                             <input class="input" id="dateFermeture" type="datetime-local"  name="dateFermeture" value="{{ old('unite',date('Y-m-d\TH:i:s',$dFermeture)) }}" >
                             @error('dateFermeture')
@@ -70,18 +69,15 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                     <div class="field">
                         <div class="control">
                             <button class="button is-link" type="button" onclick="ValidJS()">Envoyer</button>
-
                             <a class="button is-info" href="{{ route('objet.index') }}">Retour à la liste</a>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 
 <script type="text/javascript">
-
 
     function verifDate(){
         var valid = true;

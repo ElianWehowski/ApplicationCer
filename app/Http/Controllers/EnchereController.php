@@ -38,7 +38,7 @@ class EnchereController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ObjetRequest $request,Objet $enchere)
+    public function store(EnchereRequest $request,Objet $enchere)
     {
         $enchere->prix=$request->prix;
         $enchere->idProprietaire=$request->idProprietaire;
