@@ -41,7 +41,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button class="ml-3">
+                <x-button class="ml-3" name="Connexion">
                     {{ __('Connexion') }}
                 </x-button>
             </div>

@@ -56,9 +56,9 @@
                                 <td>{{ $objet->id }}</td>
                                 <td>{{ ucfirst($categories[$objet->idCategorie-1]->libelle) }}</td>
                                 @if (strlen($objet->nom)>50)
-                                    <td>{{ ucfirst(substr($objet->nom,0,50)).'...' }}</td>
+                                    <td name="objet-{{$objet->id}}">{{ ucfirst(substr($objet->nom,0,50)).'...' }}</td>
                                 @else
-                                    <td>{{ ucfirst($objet->nom)}}</td>
+                                    <td name="objet-{{$objet->id}}">{{ ucfirst($objet->nom)}}</td>
                                 @endif
                                 <td>{{ $objet->prix }} </td>
                                 <td>{{ substr($objet->dateOuverture,0,16)}} </td>
@@ -68,12 +68,12 @@
                                     @auth
                                         @if($user = Auth::user()->type == "admin")
                                             @csrf
-                                            <td><a id="enchérir-{{$objet->id}}" class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
+                                            <td><a id="modifier-{{$objet->id}}" class="button is-warning" href="{{ route('objet.edit', $objet->id) }}">Modifier</a></td>
                                             <td>
                                                 <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
-                                                    <button class="button is-danger" type="submit" id="enchérir-{{$objet->id}}">Supprimer</button>
+                                                    <button class="button is-danger" type="submit" name="supprimer-{{$objet->id}}">Supprimer</button>
                                                 </form>
                                             </td>
                                         @endif

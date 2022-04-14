@@ -4,3 +4,5 @@
 .idea/workspace.xml
 *.xml
 .idea/workspace.xml
+*.cache
+.idea/workspace.xml
