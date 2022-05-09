@@ -36,9 +36,9 @@ $dFermeture = strtotime($dFermeture->format('Y-m-d\TH:i:s'));
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label" for="IdCategorie">Catégorie</label>
+                        <label class="label" for="idCategorie">Catégorie</label>
                         <div class="control">
-                            <select class="select" id ="IdCategorie" name="IdCategorie">
+                            <select class="select" id ="idCategorie" name="idCategorie">
                                 @foreach($categories as $categorie)
                                     <option value="{{ $categorie->id }}" {{ $categorie->id==$objet->idCategorie ? 'selected' : '' }}>{{ ucfirst($categorie->libelle) }}</option>
                                 @endforeach

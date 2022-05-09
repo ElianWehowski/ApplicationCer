@@ -57,7 +57,6 @@
                                         @if(Auth::user()->type == "admin")
                                             <a class="dropdown-item" href="{{ route('enchere.create') }}">Créer une enchère</a>
                                             <a class="dropdown-item" href="{{ route('categorie.create') }}">Créer une catégorie</a>
-                                            <a class="dropdown-item" href="{{ route('objet.flush') }}">Changer les données</a>
                                         @endif
                                         @if(Request::route()->getName()=="objet.view")
                                             <a class="dropdown-item" href="{{ route('objet.index') }}">Retour aux enchères</a>

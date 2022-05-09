@@ -120,6 +120,19 @@
 
                             <td><a class="button is-info" href="{{ route('enchere.show', $objet->id) }}">Résumé</a></td>
                             <td><a class="button is-danger" disabled>Clos</a></td>
+@if (Route::has('login'))
+                                    @auth
+                                        @if($user = Auth::user()->type == "admin")
+                                            @csrf
+                                                <form action="{{ route('objet.destroy', $objet->id) }}" method="post">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                                    <td><button class="button is-danger" type="submit" name="supprimer-{{$objet->id}}">Supprimer</button></td>
+                                                </form>
+                                            
+                                        @endif
+                                    @endauth
+                                @endif
                         </tr>
                     @endif
                 @endforeach
